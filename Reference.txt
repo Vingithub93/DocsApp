@@ -1,0 +1,35 @@
+//About Framework
+
+
+
+
+
+
+//Naming Standards
+
+
+
+
+
+//Scripting Standards
+
+
+
+
+//config folder
+
+
+
+//data folder
+
+
+
+//screenshots folder
+
+
+
+//reports folder
+
+
+
+
