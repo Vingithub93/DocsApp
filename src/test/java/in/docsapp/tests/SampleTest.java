@@ -6,7 +6,7 @@ import in.docsapp.generics.Auto_Const;
 import in.docsapp.generics.ExcelLibrary;
 import in.docsapp.generics.GenericMethods;
 
-public class SampleTest {
+public class SampleTest  {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
