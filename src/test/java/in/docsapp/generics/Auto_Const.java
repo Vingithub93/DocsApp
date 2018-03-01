@@ -15,5 +15,5 @@ public interface Auto_Const {
 	String REPORTS_PATH=DIR_PATH+"\\reports";
 	
 	//Config properties path
-		String CONFIG_PATH=DIR_PATH+"\\config\\config.properties";
+		String CONFIG_PATH=DIR_PATH+"\\properties\\config.properties";
 }
