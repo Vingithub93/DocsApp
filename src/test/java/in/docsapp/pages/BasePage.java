@@ -12,9 +12,4 @@ public class BasePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	//Verifying Page Title
-	public void verifyTitle(String aTitle)
-	{
-		
-	}
 }

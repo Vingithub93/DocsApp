@@ -16,14 +16,14 @@ public class CreatingXML {
 	{
 		
 		List<String> testcasenames=new ArrayList<String>();
-		int testcasecount = ExcelLibrary.getLastRowCount(GenericMethods.getProperty("sheet8"));
+		int testcasecount = ExcelLibrary.getLastRowCount(GenericMethods.getConfigProperty("sheet8"));
 		System.out.println(testcasecount);
 		for(int i=1; i<=testcasecount; i++)
 		{ 
-			String status = ExcelLibrary.getCellValue(GenericMethods.getProperty("sheet8"), i, 1);
+			String status = ExcelLibrary.getCellValue(GenericMethods.getConfigProperty("sheet8"), i, 1);
 			if(status.equalsIgnoreCase("yes"))
 			{
-				String testcasename = ExcelLibrary.getCellValue(GenericMethods.getProperty("sheet8"), i, 0);
+				String testcasename = ExcelLibrary.getCellValue(GenericMethods.getConfigProperty("sheet8"), i, 0);
 				testcasenames.add("in.docsapp.tests." + testcasename);
 			}
 		}
@@ -33,7 +33,7 @@ public class CreatingXML {
 	
 	public static void main(String[] args) throws IOException {
 		
-		System.out.println(ExcelLibrary.getCellValue(GenericMethods.getProperty("sheet2"), 1, 0));
+		System.out.println(ExcelLibrary.getCellValue(GenericMethods.getConfigProperty("sheet2"), 1, 0));
 		//public void creatTestNGXML() {
 			System.out.println("***********Creating Testng.xml***********");
 			XmlSuite suite = new XmlSuite();
