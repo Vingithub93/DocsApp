@@ -40,11 +40,11 @@ public WebElement getEleSigninPassword()
 	@FindBy(className="SubmitButton_8baflu"),
 	@FindBy(xpath="//*[@type='submit' or @value='Sign In']")
 })
-private WebElement eleSignin;
+private WebElement eleSigninButton;
 
-public WebElement getEleSignin()
+public WebElement getEleSigninButton()
 {
-		return eleSignin;
+		return eleSigninButton;
 }
   
 

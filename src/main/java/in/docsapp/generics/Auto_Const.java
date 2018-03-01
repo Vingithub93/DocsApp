@@ -6,7 +6,7 @@ public interface Auto_Const {
 	String DIR_PATH=System.getProperty("user.dir");
 	
 	//Excel Sheet Path
-	String EXCEL_PATH=DIR_PATH+"\\data\\execution_controller.xlsx";
+	String EXCEL_PATH=DIR_PATH+"\\src\\test\\resources\\controller\\execution_controller.xlsx";
 	
 	//screenshots path
 	String SCREENSHOT_PATH=DIR_PATH+"\\screenshots";
@@ -15,5 +15,5 @@ public interface Auto_Const {
 	String REPORTS_PATH=DIR_PATH+"\\reports";
 	
 	//Config properties path
-		String CONFIG_PATH=DIR_PATH+"\\properties\\config.properties";
+		String CONFIG_PATH=DIR_PATH+"\\src\\test\\resources\\properties\\config.properties";
 }

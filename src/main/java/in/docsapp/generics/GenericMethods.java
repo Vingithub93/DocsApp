@@ -12,6 +12,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+/**
+ * 
+ * @author Vinayak
+ *
+ */
 public class GenericMethods {
 	
 	//To read the value from PROPERTIES file
@@ -45,13 +50,13 @@ public class GenericMethods {
 			}
 		
 		//Select class methods
-		public void selectbyVisibletext(WebElement element, String text)			
+		public static void selectbyVisibletext(WebElement element, String text)			
 		{			
 			Select sel = new Select(element);		
 			sel.selectByVisibleText(text);
 		}
 		
-		public void selectbyValue(WebElement element, String value)			
+		public static void selectbyValue(WebElement element, String value)			
 		{			
 			Select sel = new Select(element);		
 			sel.selectByValue(value);
@@ -63,5 +68,48 @@ public class GenericMethods {
 		    return ft.format(date.getTime());
 		}
 		
+		public void waitforElement() {
+			
+		}
+		
+		/**
+		 * 
+		 * @param driver
+		 * @param element
+		 * 
+		 * wait for the expected element to appear in GUI , wait maximunm 40 sec
+
+		 */
+		public void waitUntilElementISVisible(WebDriver driver, WebElement element) {
+			int count=0;
+			while(count<40) {
+				try {
+					element.isDisplayed();
+					break;
+				}catch (Throwable e) {
+					try {
+						Thread.sleep(1000);
+						count++;
+					} catch (InterruptedException e1) {
+						System.out.println("Element is not Displayed = "+element.toString());
+					}
+				}
+			}
+		}
+		
+		public void type(WebDriver driver,WebElement textElement, String data) {
+			waitUntilElementISVisible(driver, textElement);
+			textElement.sendKeys(data);
+		}
+		
+		public void click(WebDriver driver,WebElement clickElement) {
+			waitUntilElementISVisible(driver, clickElement);
+			clickElement.click();
+		}
+			
+		public void clearTextField(WebDriver driver,WebElement clickElement) {
+			waitUntilElementISVisible(driver, clickElement);
+			clickElement.clear();
+		}
 		
 }

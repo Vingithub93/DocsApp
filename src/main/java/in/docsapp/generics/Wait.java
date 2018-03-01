@@ -1,13 +1,17 @@
 package in.docsapp.generics;
 
-import java.io.FileInputStream;
-import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+/**
+ * 
+ * @author Deepak
+ * 
+ * contains wait generic methods
+ *
+ */
 public class Wait {
 	
 	public static WebDriverWait wait;

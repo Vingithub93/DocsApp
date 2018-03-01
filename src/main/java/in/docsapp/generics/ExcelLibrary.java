@@ -183,4 +183,21 @@ public class ExcelLibrary {
 					}
 					return value;
 				}
+				
+			public static String getSingleCell(String sheetName, int rowNum, String cellName)
+			{
+				String value="";
+				int count=0;
+				
+				try 
+				{
+					fis=new FileInputStream(Auto_Const.EXCEL_PATH);
+					wb=WorkbookFactory.create(fis);
+					value=getCellValue(sheetName, rowNum, findCellNum(cellName, sheetName));
+				}
+				catch (Exception e) {
+							
+				}
+				return value;
+			}
 }
