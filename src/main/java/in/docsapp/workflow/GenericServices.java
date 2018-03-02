@@ -90,15 +90,15 @@ public class GenericServices extends GenericMethods{
 		AddNewCase addCase = new AddNewCase(driver);
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		
-		type(driver, addCase.getEleApplicationIDTextField(), ExcelLibrary.getSingleCell("ops", rowNum, "Application_ID"));
+		type(driver, addCase.getEleApplicationIDTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID"));
 
-		type(driver, addCase.getEleNameTextField(), ExcelLibrary.getSingleCell("ops", rowNum, "Name"));
+		type(driver, addCase.getEleNameTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Name"));
 		
-		type(driver, addCase.getElePhoneTextField(), ExcelLibrary.getSingleCell("ops", rowNum, "Phone_Number"));
+		type(driver, addCase.getElePhoneTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Phone_Number"));
 		
-		type(driver, addCase.getEleAltPhoneTextField(), ExcelLibrary.getSingleCell("ops", 1, "Alt_Phone_Number"));
+		type(driver, addCase.getEleAltPhoneTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Alt_Phone_Number"));
 		
-		String value=ExcelLibrary.getSingleCell("ops", 1, "Date_of_Birth(DD-MM-YYYY)");
+		String value=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Date_of_Birth(DD-MM-YYYY)");
 		String[] DOB = value.split("-");
 		
 		type(driver, addCase.getEleDayDOBTextField(), DOB[0]);
@@ -107,26 +107,26 @@ public class GenericServices extends GenericMethods{
 		
 		type(driver, addCase.getEleYearDOBTextField(), DOB[2]);
 		
-		selectbyVisibletext(addCase.getEleGenderDropdown(), ExcelLibrary.getSingleCell("ops", 1, "Gender"));
+		selectbyVisibletext(addCase.getEleGenderDropdown(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Gender"));
 		
-		type(driver, addCase.getEleAddressTextField(), ExcelLibrary.getSingleCell("ops", 1, "Address"));
+		type(driver, addCase.getEleAddressTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Address"));
 		
-		selectbyVisibletext(addCase.getEleVendorDropdown(), ExcelLibrary.getSingleCell("ops", 1, "Vendor"));
+		selectbyVisibletext(addCase.getEleVendorDropdown(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Vendor"));
 		
-		type(driver, addCase.getElePANTextField(), ExcelLibrary.getSingleCell("ops", 1, "PAN"));
+		type(driver, addCase.getElePANTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "PAN"));
 		
-		type(driver, addCase.getElePlanTextField(), ExcelLibrary.getSingleCell("ops", 1, "Plan_Details"));
+		type(driver, addCase.getElePlanTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Plan_Details"));
 		
-		type(driver, addCase.getEleNomineeNameTextField(), ExcelLibrary.getSingleCell("ops", 1, "Nominee"));
+		type(driver, addCase.getEleNomineeNameTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Nominee"));
 		
-		type(driver, addCase.getEleNomineeDOBTextField(), ExcelLibrary.getSingleCell("ops", 1, "Nominee_DOB"));
+		type(driver, addCase.getEleNomineeDOBTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Nominee_DOB"));
 	}
 	
 	public void searchAppID(WebDriver driver, String caseName)
 	{
 		OpsDashboard ops=new OpsDashboard(driver);
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
-		String data=ExcelLibrary.getSingleCell("ops", rowNum, "Application_ID");
+		String data=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID");
 		type(driver, ops.getEleAppIDSearchTextField(), data);
 	}
 	
@@ -136,8 +136,8 @@ public class GenericServices extends GenericMethods{
 		
 		searchAppID(driver, caseName);
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
-		String appID=ExcelLibrary.getSingleCell("ops", rowNum, "Application_ID");
-		String doctorName=ExcelLibrary.getSingleCell("ops", rowNum, "Doctor");
+		String appID=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID");
+		String doctorName=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Doctor");
 		click(driver, ops.getEleApplicationIDAssign(appID));
 		click(driver, ops.getEleDoctorsName(doctorName));
 		driver.switchTo().alert().accept();

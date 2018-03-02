@@ -6,9 +6,9 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SiginPage extends BasePage{
+public class SigninPage extends BasePage{
 	
-	public 	SiginPage(WebDriver driver)
+	public 	SigninPage(WebDriver driver)
 	{
 		super(driver);
 		PageFactory.initElements(driver,this);

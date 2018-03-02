@@ -24,7 +24,7 @@ public class ExcelLibrary {
 			
 		}
 		catch (Exception e) {
-			
+			System.out.println("Unable to get Last row count");
 		}
 		return count;
 	}
@@ -40,7 +40,7 @@ public class ExcelLibrary {
 			count=wb.getSheet(sheetName).getRow(rowNum).getLastCellNum();
 		}
 		catch (Exception e) {
-				
+			System.out.println("Unable to get Last cell count");
 		}
 		return count;
 	}
@@ -56,7 +56,7 @@ public class ExcelLibrary {
 			value=wb.getSheet(sheetName).getRow(rowNum).getCell(cellNum).toString();
 		}
 		catch (Exception e) {
-					
+			System.out.println("Unable to get Cell value");
 		}
 		return value;
 	}
@@ -77,7 +77,7 @@ public class ExcelLibrary {
 			}
 		}
 		catch (Exception e) {
-					
+			System.out.println("Unable to get Cell values");
 		}
 		
 		return values;
@@ -131,7 +131,7 @@ public class ExcelLibrary {
 				}
 			}
 			catch (Exception e) {
-				System.out.println("Unable to find row number for "+caseName);
+				System.out.println("Unable to find cell number for "+caseName);
 			}
 			return value;
 		}
@@ -152,7 +152,7 @@ public class ExcelLibrary {
 				}
 			}
 			catch (Exception e) {
-						
+				System.out.println("Unable to get Row values");
 			}
 			
 			return values;
@@ -196,7 +196,7 @@ public class ExcelLibrary {
 					value=getCellValue(sheetName, rowNum, findCellNum(cellName, sheetName));
 				}
 				catch (Exception e) {
-							
+					System.out.println("Unable to find Sigle cell Name");
 				}
 				return value;
 			}
