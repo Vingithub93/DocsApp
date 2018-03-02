@@ -3,8 +3,7 @@
 <suite name="Demo_Suite">
   <test name="Demo_Test">
     <classes>
-      <class name="in.docsapp.tests.AddNewCaseTest"/>
-      <class name="in.docsapp.tests.AssignCaseTest"/>
+      <class name="in.docsapp.tests.Case_01_Test"/>
     </classes>
   </test> <!-- Demo_Test -->
 </suite> <!-- Demo_Suite -->

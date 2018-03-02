@@ -26,5 +26,28 @@ public class DoctorsDashboardPagePO extends BasePage {
 	{
 		return eleDiagnosisButton;
 	}
-
+	
+	@FindAll
+	({
+		@FindBy(xpath="//button[text()='Submit']")
+	})
+	private WebElement eleDiagnosisSubmitButton;
+	
+	public WebElement getEleDiagnosisSubmitButton()
+	{
+		return eleDiagnosisSubmitButton;
+	}
+	
+	@FindAll
+	({
+		@FindBy(xpath="//div[text()='X']")
+	})
+	private WebElement eleFormCloseButton;
+	
+	public WebElement getEleFormCloseButton()
+	{
+		return eleFormCloseButton;
+	}
+	
+	
 }

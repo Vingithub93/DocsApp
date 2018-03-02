@@ -12,6 +12,7 @@ import in.docsapp.generics.ExcelLibrary;
 import in.docsapp.generics.GenericMethods;
 import in.docsapp.generics.Wait;
 import in.docsapp.pages.AddNewCasePagePO;
+import in.docsapp.pages.DoctorsDashboardPagePO;
 import in.docsapp.pages.OpsDashboardPagePO;
 import in.docsapp.pages.SigninPagePagePO;
 
@@ -43,6 +44,7 @@ public class ServiceLib extends GenericMethods{
 		
 		methods.type(driver, signin.getEleSigninUsername(), userName);
 		methods.type(driver, signin.getEleSigninPassword(), password);
+		methods.customDelay(5);
 		methods.click(driver, signin.getEleSigninButton());
 		}
 		catch (Throwable e) {
@@ -135,6 +137,7 @@ public class ServiceLib extends GenericMethods{
 		
 		methods.type(driver, signin.getEleSigninUsername(), userName);
 		methods.type(driver, signin.getEleSigninPassword(), password);
+		methods.customDelay(5);
 		methods.click(driver, signin.getEleSigninButton());
 		}
 		catch (Throwable e) {
@@ -154,7 +157,7 @@ public class ServiceLib extends GenericMethods{
 	{
 		BasePage base=new BasePage(driver);
 		GenericMethods methods=new GenericMethods();
-		
+		methods.customDelay(3);
 		methods.click(driver, base.getElelogoutButton());
 	}
 	
@@ -200,7 +203,9 @@ public class ServiceLib extends GenericMethods{
 			if(option.equalsIgnoreCase("yes"))
 			{
 				Wait.waitForElementClickable(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")));
-				driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")).click();
+
+				click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")));
+				
 				try {
 					List<WebElement> ele = driver.findElements(By.xpath("//*[contains(text(),'"+question+"')]/../..//div[last()]//input"));
 					for(WebElement we:ele)
@@ -214,11 +219,25 @@ public class ServiceLib extends GenericMethods{
 				}
 			}
 			else if (option.equalsIgnoreCase("no")) {
-				driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'No')]")).click();
+				click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'No')]")));
+			}
+			else if (option.equalsIgnoreCase("NA")) {
+				try {
+					List<WebElement> ele = driver.findElements(By.xpath("//*[contains(text(),'"+question+"')]/../..//div[last()]//input"));
+					for(WebElement we:ele)
+					{
+						clearTextField(driver, we);
+						type(driver, we, answer);
+					}
+				}
+				catch (Exception e) {
+					System.out.println("No input text Field for question "+question);
+				}
 			}
 				
 			
 		}
+		
 	}
 	
 	
@@ -268,8 +287,7 @@ public class ServiceLib extends GenericMethods{
 		
 		type(driver, addCase.getEleNomineeDOBTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Nominee_DOB"));
 		
-//		click(driver, addCase.getEleSubmitButton());
-		driver.navigate().back();
+		click(driver, addCase.getEleSubmitButton());
 	}
 	
 	/**
@@ -307,13 +325,18 @@ public class ServiceLib extends GenericMethods{
 	{
 		OpsDashboardPagePO ops=new OpsDashboardPagePO(driver);
 		
+		waitForCasesToLoad(driver);
 		searchAppID(driver, caseName);
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		String appID=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID");
 		String doctorName=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Doctor");
 		click(driver, ops.getEleApplicationIDAssign(appID));
 		click(driver, ops.getEleDoctorsName(doctorName));
+		try {
 		driver.switchTo().alert().accept();
+		}
+		catch (Throwable e) {
+		}
 	}
 	
 	/**
@@ -353,5 +376,56 @@ public class ServiceLib extends GenericMethods{
 		
 		genericMethods.customDelay(8);
 		genericMethods.waitUntilElementISVisible(driver, basePage.getEleLoader());
+	}
+	
+	/**
+	 * 
+	 * @param driver
+	 * @param caseName
+	 * 
+	 * <p>
+	 * <b>Note:</b>This method has complete actions to add case from ops dashboard
+	 * 
+	 * </p>
+	 */
+	public void addCaseFlow(WebDriver driver, String caseName)
+	{
+		OpsDashboardPagePO ops=new OpsDashboardPagePO(driver);
+		
+		waitForCasesToLoad(driver);
+		click(driver, ops.getEleAddButton());
+		createCaseOps(driver, caseName);
+		
+	}
+	
+	/**
+	 * 
+	 * @param driver
+	 * @param caseName
+	 * 
+	 * <p>
+	 * <b>Note:</b>This method has complete actions to diagnose case based on the Application ID for a Case name from doctor dashboard
+	 * 
+	 * </p>
+	 */
+	public void diagnoseCaseFlow(WebDriver driver, String caseName)
+	{
+		OpsDashboardPagePO ops=new OpsDashboardPagePO(driver);
+		BasePage basePage =new BasePage(driver);
+		DoctorsDashboardPagePO doctor=new DoctorsDashboardPagePO(driver);
+		
+		
+		waitForCasesToLoad(driver);
+		searchAppID(driver, caseName);
+		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
+		String appID=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID");
+		click(driver, basePage.getEleforParticularCase(appID, "Diagnosis"));
+		
+		actionOnQuestion(driver, caseName);
+		
+		click(driver, doctor.getEleDiagnosisSubmitButton());
+		
+		
+		
 	}
 }

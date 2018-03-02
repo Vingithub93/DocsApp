@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="in.docsapp.tests.AddNewCaseTest">
+      <class name="in.docsapp.tests.Case_01_Test">
         <methods>
-          <include name="testAssignCase"/>
           <include name="launchApplication"/>
+          <include name="testDiagnoseCaseAsDoctor"/>
           <include name="exitApplication"/>
+          <include name="testAddandAssignNewCase"/>
         </methods>
-      </class> <!-- in.docsapp.tests.AddNewCaseTest -->
+      </class> <!-- in.docsapp.tests.Case_01_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
