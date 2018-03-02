@@ -56,7 +56,7 @@ public class ExcelLibrary {
 			value=wb.getSheet(sheetName).getRow(rowNum).getCell(cellNum).toString();
 		}
 		catch (Exception e) {
-			System.out.println("Unable to get Cell value");
+			System.out.println("Unable to get Cell value for "+sheetName+" "+rowNum+" "+cellNum);
 		}
 		return value;
 	}

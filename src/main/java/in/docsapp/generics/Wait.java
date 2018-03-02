@@ -50,5 +50,4 @@ public class Wait {
 		wait=new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.textToBePresentInElement(element, text));	
 	}
-		
 }

@@ -1,5 +1,6 @@
 package in.docsapp.generics;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,4 +23,16 @@ public class BasePage {
 		return elelogoutButton;
 	}
 	
+	public WebElement getEleforParticularCase(String appID, String text)
+	{
+		return driver.findElement(By.xpath("//div[text()='"+appID+"']/../../../..//*[contains(text(),'"+text+"')]"));
+	}
+	
+	@FindBy(xpath="//div[@style='right: -100px;']")
+	private WebElement eleLoader;
+	
+	public WebElement getEleLoader()
+	{
+		return eleLoader;
+	}
 }

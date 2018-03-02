@@ -8,9 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import in.docsapp.generics.BasePage;
 
-public class AddNewCase extends BasePage{
+public class AddNewCasePagePO extends BasePage{
 	
-	public AddNewCase(WebDriver driver)
+	public AddNewCasePagePO(WebDriver driver)
 	{
 		super(driver);
 		PageFactory.initElements(driver,this);

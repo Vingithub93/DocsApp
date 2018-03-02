@@ -99,6 +99,7 @@ public class GenericMethods {
 		
 		public void type(WebDriver driver,WebElement textElement, String data) {
 			waitUntilElementISVisible(driver, textElement);
+			System.out.println(data);
 			textElement.sendKeys(data);
 		}
 		
@@ -111,5 +112,16 @@ public class GenericMethods {
 			waitUntilElementISVisible(driver, clickElement);
 			clickElement.clear();
 		}
+		
+		public void customDelay(int timeSeconds)
+		{
+			try {
+				Thread.sleep(timeSeconds*1000);
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+		
 		
 }

@@ -8,9 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import in.docsapp.generics.BasePage;
 
-public class SigninPage extends BasePage{
+public class SigninPagePagePO extends BasePage{
 	
-	public 	SigninPage(WebDriver driver)
+	public 	SigninPagePagePO(WebDriver driver)
 	{
 		super(driver);
 		PageFactory.initElements(driver,this);

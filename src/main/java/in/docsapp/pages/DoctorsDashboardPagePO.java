@@ -8,9 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import in.docsapp.generics.BasePage;
 
-public class DoctorsDashboard extends BasePage {
+public class DoctorsDashboardPagePO extends BasePage {
 	
-	public DoctorsDashboard(WebDriver driver)
+	public DoctorsDashboardPagePO(WebDriver driver)
 	{
 		super(driver);
 		PageFactory.initElements(driver,this);

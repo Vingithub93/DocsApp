@@ -2,14 +2,11 @@ package in.docsapp.generics;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 
@@ -20,7 +17,7 @@ public class BaseTest {
 	public DesiredCapabilities capabilities;
 	
 	
-	@BeforeTest
+	@BeforeClass
 	public void launchApplication() {
 		
 		ChromeDriverManager.getInstance().setup();
@@ -33,8 +30,8 @@ public class BaseTest {
 	}
 	
 	
-	@AfterTest
+	@AfterClass
 	public void exitApplication() {
-		driver.close();
+//		driver.close();
 	}
 }

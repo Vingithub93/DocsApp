@@ -8,9 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import in.docsapp.generics.BasePage;
 
-public class OpsDashboard extends BasePage {
+public class OpsDashboardPagePO extends BasePage {
 	
-	public OpsDashboard (WebDriver driver)
+	public OpsDashboardPagePO(WebDriver driver)
 	{
 		super(driver);
 		PageFactory.initElements(driver,this);
