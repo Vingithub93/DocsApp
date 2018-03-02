@@ -2,6 +2,7 @@ package in.docsapp.workflow;
 
 import org.openqa.selenium.WebDriver;
 
+import in.docsapp.generics.BasePage;
 import in.docsapp.generics.ExcelLibrary;
 import in.docsapp.generics.GenericMethods;
 import in.docsapp.generics.Wait;
@@ -27,7 +28,7 @@ public class ServiceLib {
 	 * 
 	 * 
 	 */
-	public static void initService(String userName, String password, WebDriver driver)
+	public void initService(String userName, String password, WebDriver driver)
 	{
 		try {
 		SigninPage signin=new SigninPage(driver);
@@ -44,6 +45,9 @@ public class ServiceLib {
 	}
 	
 	/**
+	 * <p>
+	 * <b>Note:</b> This method login to application using type of user(ops, doctor, vendor) and case name or user name 
+	 * </p>
 	 * 
 	 * @param driver
 	 * @param typeOfUser
@@ -51,7 +55,7 @@ public class ServiceLib {
 	 * 
 	 * 
 	 */
-	public static void initService(WebDriver driver, String typeOfUser, String caseOrUsername)
+	public void initService(WebDriver driver, String typeOfUser, String caseOrUsername)
 	{
 		try {
 		
@@ -130,5 +134,13 @@ public class ServiceLib {
 			System.out.println("Unable to login based on "+ caseOrUsername);
 		}
 		
+	}
+	
+	public void exit(WebDriver driver)
+	{
+		BasePage base=new BasePage(driver);
+		GenericMethods methods=new GenericMethods();
+		
+		methods.click(driver, base.getElelogoutButton());
 	}
 }

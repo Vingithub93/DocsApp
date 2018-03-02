@@ -6,8 +6,10 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 import in.docsapp.generics.Auto_Const;
+import in.docsapp.generics.BaseTest;
 import in.docsapp.generics.ExcelLibrary;
 import in.docsapp.generics.GenericMethods;
 import in.docsapp.pages.OpsDashboard;
@@ -20,19 +22,12 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
  * @author Vinyak
  *
  */
-public class SampleTest  {
-
-	public static WebDriver driver;
-	public static void main(String[] args) throws Exception{
+public class SampleTest extends BaseTest {
+	
+	@Test
+	public void main() throws Exception{
 		
 		System.out.println(ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), 1, "Application_ID"));
-		
-		  
-		ChromeDriverManager.getInstance().setup();
-		driver= new ChromeDriver();
-		driver.get("https://b2btest.docsapp.in/webviews/telemerdashboardreact/?#!login");
-		Thread.sleep(4000);
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		/*
 		driver.findElement(By.name("txtemail")).sendKeys("ops@docsapp.in");
 		driver.findElement(By.name("txtpassword")).sendKeys("1@3$5^");
@@ -47,7 +42,8 @@ public class SampleTest  {
 		services.searchAppID(driver, "case 1");
 		services.assignDoctor(driver, "case 1");
 		ServiceLib.initService(driver, "");*/
-		ServiceLib.initService(driver, "ops", "Priya");
+		
 	}
+	 
 
 }

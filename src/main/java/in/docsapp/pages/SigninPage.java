@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import in.docsapp.generics.BasePage;
+
 public class SigninPage extends BasePage{
 	
 	public 	SigninPage(WebDriver driver)

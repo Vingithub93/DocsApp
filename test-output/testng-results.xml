@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="20790" started-at="2018-03-02T10:26:48Z" finished-at="2018-03-02T10:27:09Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="20790" started-at="2018-03-02T10:26:48Z" finished-at="2018-03-02T10:27:09Z">
+      <class name="in.docsapp.tests.SampleTest">
+        <test-method status="PASS" signature="launchApplication()[pri:0, instance:in.docsapp.tests.SampleTest@6f7fd0e6]" name="launchApplication" is-config="true" duration-ms="20118" started-at="2018-03-02T15:56:48Z" finished-at="2018-03-02T15:57:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method status="PASS" signature="main()[pri:0, instance:in.docsapp.tests.SampleTest@6f7fd0e6]" name="main" duration-ms="507" started-at="2018-03-02T15:57:08Z" finished-at="2018-03-02T15:57:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- main -->
+        <test-method status="PASS" signature="exitApplication()[pri:0, instance:in.docsapp.tests.SampleTest@6f7fd0e6]" name="exitApplication" is-config="true" duration-ms="150" started-at="2018-03-02T15:57:09Z" finished-at="2018-03-02T15:57:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exitApplication -->
+      </class> <!-- in.docsapp.tests.SampleTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
