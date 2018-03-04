@@ -17,10 +17,27 @@ import in.docsapp.pages.DoctorsDashboardPagePO;
 import in.docsapp.pages.OpsDashboardPagePO;
 import in.docsapp.pages.SigninPagePagePO;
 
+
 /**
  * 
- * @author Vinayak
+ * <p>
+ * <b>Note:</b> The ServiceLib class has inbuilt methods which performs complete tasks<br><br>
+ * For example: <br>
+ * loginService: This method can be used to login to the application directly using email and password<br>
+ * initService: This method can be used to login to the application using type of user and case name ex: doctor, case 1<br>
+ * exit: <br>
+ * actionOnQuestion: <br>
+ * createCaseAsOps: <br>
+ * searchAppID: <br>
+ * assignDoctor: <br>
+ * viewCaseAsOps: <br>
+ * waitForCaseTOLoad: <br>
+ * addCaseFlow: <br>
+ * diagnoseCaseFlow: <br>
+ * verifyCaseFlow: <br>
+ * </p>
  *
+ * @author Vinayak
  */
 public class ServiceLib extends BasePage{
 
@@ -32,7 +49,7 @@ public class ServiceLib extends BasePage{
 
 	/**
 	 * <p>
-	 *  <b>Note:</b>This method helps login to the application based on the usename and password
+	 *  <b>Note:</b>The loginService method helps login to the application based on the usename and password
 	 *  </p>
 	 * @param userName
 	 * @param password
@@ -60,7 +77,7 @@ public class ServiceLib extends BasePage{
 	
 	/**
 	 * <p>
-	 * <b>Note:</b> This method helps login to application using type of user(ops, doctor, vendor) and case name or user name 
+	 * <b>Note:</b> The initService method helps login to application using type of user(ops, doctor, vendor) and case name or user name 
 	 * </p>
 	 * 
 	 * @param typeOfUser
@@ -152,7 +169,7 @@ public class ServiceLib extends BasePage{
 	
 	/**
 	 * <p>
-	 * <b>Note:</b> This method helps to logout from the application
+	 * <b>Note:</b> The exit method helps to logout from the application
 	 * 
 	 * </p>
 	 */
@@ -169,7 +186,7 @@ public class ServiceLib extends BasePage{
 	 * @param caseName
 	 * 
 	 * <p>
-	 *<b>Note:</b>This method is used to diagnose a case as doctor and verify it as a ops for max life 
+	 *<b>Note:</b>The actionOnQuestion method is used to diagnose a case as doctor and verify it as a ops for max life 
 	 * </p>
 	 * 
 	 */
@@ -250,7 +267,7 @@ public class ServiceLib extends BasePage{
 	 * @param caseName
 	 * 
 	 * <p>
-	 * <b>Note: </b> This method is used to create a new case as ops
+	 * <b>Note: </b> The createCaseOps method is used to create a new case as ops
 	 * 
 	 * </p>
 	 */
@@ -300,7 +317,7 @@ public class ServiceLib extends BasePage{
 	 * @param caseName
 	 * 
 	 * <p>
-	 * <b>Note: </b>This method is searches for the case based on the Application ID
+	 * <b>Note: </b>The searchAppID method is searches for the case based on the Application ID
 	 * 
 	 * 
 	 * </p>
@@ -322,7 +339,7 @@ public class ServiceLib extends BasePage{
 	 * @param caseName
 	 * 
 	 * <p>
-	 * <b>Note:</b>This method assigns a doctor to a case based on the case name
+	 * <b>Note:</b>The assignDoctor method assigns a doctor to a case based on the case name
 	 * 
 	 * </p>
 	 */
@@ -349,7 +366,7 @@ public class ServiceLib extends BasePage{
 	 * 
 	 * @param caseName
 	 * <p>
-	 * <b>Note:</b>This method clicks on view button for based on Application ID for a given case number
+	 * <b>Note:</b>The viewCaseAsOps method clicks on view button for based on Application ID for a given case number
 	 * 
 	 * </p>
 	 * 
@@ -369,7 +386,7 @@ public class ServiceLib extends BasePage{
 	 * 
 	 * 
 	 * <p>
-	 * <b>Note:</b>This method wait for the cases to load
+	 * <b>Note:</b>The waitForCasesToLoad method wait for the cases to load
 	 * 
 	 * </p>
 	 */
@@ -387,7 +404,7 @@ public class ServiceLib extends BasePage{
 	 * @param caseName
 	 * 
 	 * <p>
-	 * <b>Note:</b>This method has complete actions to add case from ops dashboard
+	 * <b>Note:</b>The addCaseFlow method has complete actions to add case from ops dashboard
 	 * 
 	 * </p>
 	 */
@@ -406,7 +423,7 @@ public class ServiceLib extends BasePage{
 	 * @param caseName
 	 * 
 	 * <p>
-	 * <b>Note:</b>This method has complete actions to diagnose case based on the Application ID for a Case name from doctor dashboard
+	 * <b>Note:</b>The diagnoseCaseFlow method has complete actions to diagnose case based on the Application ID for a Case name from doctor dashboard
 	 * 
 	 * </p>
 	 */
@@ -427,6 +444,15 @@ public class ServiceLib extends BasePage{
 		methods.click(driver, doctor.getEleDiagnosisSubmitButton());
 	}
 	
+	
+	/**
+	 * @param caseName
+	 * 
+	 * <p>
+	 * <b>Note:</b>The verifyCaseFlow method has complete actions to verify the case which is diagnosed by a doctor
+	 * 
+	 * </p>
+	 */
 	public void verifyCaseFlow(String caseName)
 	{
 		BasePage basePage =new BasePage(driver);
