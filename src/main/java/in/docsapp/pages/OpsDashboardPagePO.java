@@ -42,4 +42,11 @@ public class OpsDashboardPagePO extends BasePage {
 		return driver.findElement(By.xpath("//*[contains(text(),'"+doctorName+"')]"));
 	}
 	
+	@FindBy(xpath="(//button[text()='Verify'])")
+	private WebElement eleFormVerifyButton;
+	
+	public WebElement getEleFormVerifyButton()
+	{
+		return eleFormVerifyButton;
+	}
 }

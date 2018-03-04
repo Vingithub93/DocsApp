@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="58005" started-at="2018-03-02T15:32:04Z" finished-at="2018-03-02T15:33:02Z">
+  <suite name="Default suite" duration-ms="111971" started-at="2018-03-03T19:35:42Z" finished-at="2018-03-03T19:37:34Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="58005" started-at="2018-03-02T15:32:04Z" finished-at="2018-03-02T15:33:02Z">
+    <test name="Default test" duration-ms="111971" started-at="2018-03-03T19:35:42Z" finished-at="2018-03-03T19:37:34Z">
       <class name="in.docsapp.tests.Case_01_Test">
-        <test-method status="PASS" signature="launchApplication()[pri:0, instance:in.docsapp.tests.Case_01_Test@6f7fd0e6]" name="launchApplication" is-config="true" duration-ms="15394" started-at="2018-03-02T21:02:04Z" finished-at="2018-03-02T21:02:19Z">
+        <test-method status="PASS" signature="launchApplication()[pri:0, instance:in.docsapp.tests.Case_01_Test@653222]" name="launchApplication" is-config="true" duration-ms="23296" started-at="2018-03-04T01:05:42Z" finished-at="2018-03-04T01:06:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method status="PASS" signature="testAddandAssignNewCase()[pri:0, instance:in.docsapp.tests.Case_01_Test@6f7fd0e6]" name="testAddandAssignNewCase" duration-ms="23894" started-at="2018-03-02T21:02:19Z" finished-at="2018-03-02T21:02:43Z">
+        <test-method status="PASS" signature="testVerifyCaseAsOps()[pri:0, instance:in.docsapp.tests.Case_01_Test@653222]" name="testVerifyCaseAsOps" duration-ms="88647" started-at="2018-03-04T01:06:05Z" finished-at="2018-03-04T01:07:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAddandAssignNewCase -->
-        <test-method status="PASS" signature="testDiagnoseCaseAsDoctor()[pri:0, instance:in.docsapp.tests.Case_01_Test@6f7fd0e6]" name="testDiagnoseCaseAsDoctor" duration-ms="18691" started-at="2018-03-02T21:02:43Z" depends-on-methods="in.docsapp.tests.Case_01_Test.testAddandAssignNewCase" finished-at="2018-03-02T21:03:02Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testDiagnoseCaseAsDoctor -->
-        <test-method status="PASS" signature="exitApplication()[pri:0, instance:in.docsapp.tests.Case_01_Test@6f7fd0e6]" name="exitApplication" is-config="true" duration-ms="0" started-at="2018-03-02T21:03:02Z" finished-at="2018-03-02T21:03:02Z">
+        </test-method> <!-- testVerifyCaseAsOps -->
+        <test-method status="PASS" signature="exitApplication()[pri:0, instance:in.docsapp.tests.Case_01_Test@653222]" name="exitApplication" is-config="true" duration-ms="1" started-at="2018-03-04T01:07:34Z" finished-at="2018-03-04T01:07:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- exitApplication -->

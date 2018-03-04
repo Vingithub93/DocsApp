@@ -82,7 +82,7 @@ public class GenericMethods {
 		 */
 		public void waitUntilElementISVisible(WebDriver driver, WebElement element) {
 			int count=0;
-			while(count<40) {
+			while(count<30) {
 				try {
 					element.isDisplayed();
 					break;
@@ -119,7 +119,6 @@ public class GenericMethods {
 				Thread.sleep(timeSeconds*1000);
 			}
 			catch (Exception e) {
-				// TODO: handle exception
 			}
 		}
 		

@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import in.docsapp.generics.BasePage;
 import in.docsapp.generics.ExcelLibrary;
@@ -21,14 +22,18 @@ import in.docsapp.pages.SigninPagePagePO;
  * @author Vinayak
  *
  */
-public class ServiceLib extends GenericMethods{
+public class ServiceLib extends BasePage{
 
 	
+	public ServiceLib(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
 	/**
 	 * <p>
 	 *  <b>Note:</b>This method helps login to the application based on the usename and password
 	 *  </p>
-	 * @param driver
 	 * @param userName
 	 * @param password
 	 * 
@@ -36,7 +41,7 @@ public class ServiceLib extends GenericMethods{
 	 * 
 	 * 
 	 */
-	public void initService(String userName, String password, WebDriver driver)
+	public void loginService(String userName, String password)
 	{
 		try {
 		SigninPagePagePO signin=new SigninPagePagePO(driver);
@@ -58,13 +63,12 @@ public class ServiceLib extends GenericMethods{
 	 * <b>Note:</b> This method helps login to application using type of user(ops, doctor, vendor) and case name or user name 
 	 * </p>
 	 * 
-	 * @param driver
 	 * @param typeOfUser
 	 * @param caseName
 	 * 
 	 * 
 	 */
-	public void initService(WebDriver driver, String typeOfUser, String caseOrUsername)
+	public void initService(String typeOfUser, String caseOrUsername)
 	{
 		try {
 		
@@ -151,9 +155,8 @@ public class ServiceLib extends GenericMethods{
 	 * <b>Note:</b> This method helps to logout from the application
 	 * 
 	 * </p>
-	 * @param driver
 	 */
-	public void exit(WebDriver driver)
+	public void exit()
 	{
 		BasePage base=new BasePage(driver);
 		GenericMethods methods=new GenericMethods();
@@ -163,7 +166,6 @@ public class ServiceLib extends GenericMethods{
 	
 	/**
 	 * 
-	 * @param driver
 	 * @param caseName
 	 * 
 	 * <p>
@@ -171,8 +173,10 @@ public class ServiceLib extends GenericMethods{
 	 * </p>
 	 * 
 	 */
-	public void actionOnQuestion(WebDriver driver, String caseName)
+	public void actionOnQuestion(String caseName)
 	{
+		GenericMethods methods=new GenericMethods();
+		
 		String sheetName="";
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		
@@ -204,14 +208,14 @@ public class ServiceLib extends GenericMethods{
 			{
 				Wait.waitForElementClickable(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")));
 
-				click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")));
+				methods.click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")));
 				
 				try {
 					List<WebElement> ele = driver.findElements(By.xpath("//*[contains(text(),'"+question+"')]/../..//div[last()]//input"));
 					for(WebElement we:ele)
 					{
-						clearTextField(driver, we);
-						type(driver, we, answer);
+						methods.clearTextField(driver, we);
+						methods.type(driver, we, answer);
 					}
 				}
 				catch (Exception e) {
@@ -219,15 +223,15 @@ public class ServiceLib extends GenericMethods{
 				}
 			}
 			else if (option.equalsIgnoreCase("no")) {
-				click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'No')]")));
+				methods.click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'No')]")));
 			}
 			else if (option.equalsIgnoreCase("NA")) {
 				try {
 					List<WebElement> ele = driver.findElements(By.xpath("//*[contains(text(),'"+question+"')]/../..//div[last()]//input"));
 					for(WebElement we:ele)
 					{
-						clearTextField(driver, we);
-						type(driver, we, answer);
+						methods.clearTextField(driver, we);
+						methods.type(driver, we, answer);
 					}
 				}
 				catch (Exception e) {
@@ -243,7 +247,6 @@ public class ServiceLib extends GenericMethods{
 	
 	/**
 	 * 
-	 * @param driver
 	 * @param caseName
 	 * 
 	 * <p>
@@ -251,48 +254,49 @@ public class ServiceLib extends GenericMethods{
 	 * 
 	 * </p>
 	 */
-	public void createCaseOps(WebDriver driver,String caseName)
+	public void createCaseOps(String caseName)
 	{
+		GenericMethods methods=new GenericMethods();
+		
 		AddNewCasePagePO addCase = new AddNewCasePagePO(driver);
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		
-		type(driver, addCase.getEleApplicationIDTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID"));
+		methods.type(driver, addCase.getEleApplicationIDTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID"));
 
-		type(driver, addCase.getEleNameTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Name"));
+		methods.type(driver, addCase.getEleNameTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Name"));
 		
-		type(driver, addCase.getElePhoneTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Phone_Number"));
+		methods.type(driver, addCase.getElePhoneTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Phone_Number"));
 		
-		type(driver, addCase.getEleAltPhoneTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Alt_Phone_Number"));
+		methods.type(driver, addCase.getEleAltPhoneTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Alt_Phone_Number"));
 		
 		String value=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Date_of_Birth(DD-MM-YYYY)");
 		String[] DOB = value.split("-");
 		
-		type(driver, addCase.getEleDayDOBTextField(), DOB[0]);
+		methods.type(driver, addCase.getEleDayDOBTextField(), DOB[0]);
 		
-		type(driver, addCase.getEleMonthDOBTextField(), DOB[1]);
+		methods.type(driver, addCase.getEleMonthDOBTextField(), DOB[1]);
 		
-		type(driver, addCase.getEleYearDOBTextField(), DOB[2]);
+		methods.type(driver, addCase.getEleYearDOBTextField(), DOB[2]);
 		
-		selectbyVisibletext(addCase.getEleGenderDropdown(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Gender"));
+		GenericMethods.selectbyVisibletext(addCase.getEleGenderDropdown(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Gender"));
 		
-		type(driver, addCase.getEleAddressTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Address"));
+		methods.type(driver, addCase.getEleAddressTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Address"));
 		
-		selectbyVisibletext(addCase.getEleVendorDropdown(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Vendor"));
+		GenericMethods.selectbyVisibletext(addCase.getEleVendorDropdown(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Vendor"));
 		
-		type(driver, addCase.getElePANTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "PAN"));
+		methods.type(driver, addCase.getElePANTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "PAN"));
 		
-		type(driver, addCase.getElePlanTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Plan_Details"));
+		methods.type(driver, addCase.getElePlanTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Plan_Details"));
 		
-		type(driver, addCase.getEleNomineeNameTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Nominee"));
+		methods.type(driver, addCase.getEleNomineeNameTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Nominee"));
 		
-		type(driver, addCase.getEleNomineeDOBTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Nominee_DOB"));
+		methods.type(driver, addCase.getEleNomineeDOBTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Nominee_DOB"));
 		
-		click(driver, addCase.getEleSubmitButton());
+		methods.click(driver, addCase.getEleSubmitButton());
 	}
 	
 	/**
 	 * 
-	 * @param driver
 	 * @param caseName
 	 * 
 	 * <p>
@@ -302,18 +306,19 @@ public class ServiceLib extends GenericMethods{
 	 * </p>
 	 * 
 	 */
-	public void searchAppID(WebDriver driver, String caseName)
+	public void searchAppID(String caseName)
 	{
+		GenericMethods methods=new GenericMethods();
+		
 		OpsDashboardPagePO ops=new OpsDashboardPagePO(driver);
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		String data=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID");
-		type(driver, ops.getEleAppIDSearchTextField(), data);
+		methods.type(driver, ops.getEleAppIDSearchTextField(), data);
 	}
 	
 	
 	/**
 	 * 
-	 * @param driver
 	 * @param caseName
 	 * 
 	 * <p>
@@ -321,17 +326,18 @@ public class ServiceLib extends GenericMethods{
 	 * 
 	 * </p>
 	 */
-	public void assignDoctor(WebDriver driver, String caseName)
+	public void assignDoctor(String caseName)
 	{
 		OpsDashboardPagePO ops=new OpsDashboardPagePO(driver);
+		GenericMethods methods=new GenericMethods();
 		
-		waitForCasesToLoad(driver);
-		searchAppID(driver, caseName);
+		waitForCasesToLoad();
+		searchAppID(caseName);
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		String appID=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID");
 		String doctorName=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Doctor");
-		click(driver, ops.getEleApplicationIDAssign(appID));
-		click(driver, ops.getEleDoctorsName(doctorName));
+		methods.click(driver, ops.getEleApplicationIDAssign(appID));
+		methods.click(driver, ops.getEleDoctorsName(doctorName));
 		try {
 		driver.switchTo().alert().accept();
 		}
@@ -341,7 +347,6 @@ public class ServiceLib extends GenericMethods{
 	
 	/**
 	 * 
-	 * @param driver
 	 * @param caseName
 	 * <p>
 	 * <b>Note:</b>This method clicks on view button for based on Application ID for a given case number
@@ -349,27 +354,26 @@ public class ServiceLib extends GenericMethods{
 	 * </p>
 	 * 
 	 */
-	public void viewCaseAsOps(WebDriver driver, String caseName) {
-		OpsDashboardPagePO ops=new OpsDashboardPagePO(driver);
+	public void viewCaseAsOps(String caseName) {
 		BasePage base=new BasePage(driver);
 		
-		searchAppID(driver, caseName);
+		GenericMethods methods=new GenericMethods();
+		searchAppID(caseName);
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		String appID=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID");
-		click(driver, base.getEleforParticularCase(appID, "View"));
+		methods.click(driver, base.getEleforParticularCase(appID, "View"));
 		
 	}
 	
 	/**
 	 * 
-	 * @param driver
 	 * 
 	 * <p>
 	 * <b>Note:</b>This method wait for the cases to load
 	 * 
 	 * </p>
 	 */
-	public void waitForCasesToLoad(WebDriver driver)
+	public void waitForCasesToLoad()
 	{
 		BasePage basePage=new BasePage(driver);
 		GenericMethods genericMethods=new GenericMethods();
@@ -380,7 +384,6 @@ public class ServiceLib extends GenericMethods{
 	
 	/**
 	 * 
-	 * @param driver
 	 * @param caseName
 	 * 
 	 * <p>
@@ -388,19 +391,18 @@ public class ServiceLib extends GenericMethods{
 	 * 
 	 * </p>
 	 */
-	public void addCaseFlow(WebDriver driver, String caseName)
+	public void addCaseFlow(String caseName)
 	{
 		OpsDashboardPagePO ops=new OpsDashboardPagePO(driver);
+		GenericMethods methods=new GenericMethods();
 		
-		waitForCasesToLoad(driver);
-		click(driver, ops.getEleAddButton());
-		createCaseOps(driver, caseName);
+		waitForCasesToLoad();
+		methods.click(driver, ops.getEleAddButton());
+		createCaseOps(caseName);
 		
 	}
 	
 	/**
-	 * 
-	 * @param driver
 	 * @param caseName
 	 * 
 	 * <p>
@@ -408,24 +410,37 @@ public class ServiceLib extends GenericMethods{
 	 * 
 	 * </p>
 	 */
-	public void diagnoseCaseFlow(WebDriver driver, String caseName)
+	public void diagnoseCaseFlow(String caseName)
 	{
-		OpsDashboardPagePO ops=new OpsDashboardPagePO(driver);
 		BasePage basePage =new BasePage(driver);
 		DoctorsDashboardPagePO doctor=new DoctorsDashboardPagePO(driver);
 		
-		
-		waitForCasesToLoad(driver);
-		searchAppID(driver, caseName);
+		GenericMethods methods=new GenericMethods();
+		waitForCasesToLoad();
+		searchAppID(caseName);
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		String appID=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID");
-		click(driver, basePage.getEleforParticularCase(appID, "Diagnosis"));
+		methods.click(driver, basePage.getEleforParticularCase(appID, "Diagnosis"));
 		
-		actionOnQuestion(driver, caseName);
+		actionOnQuestion(caseName);
 		
-		click(driver, doctor.getEleDiagnosisSubmitButton());
+		methods.click(driver, doctor.getEleDiagnosisSubmitButton());
+	}
+	
+	public void verifyCaseFlow(String caseName)
+	{
+		BasePage basePage =new BasePage(driver);
+		OpsDashboardPagePO ops=new OpsDashboardPagePO(driver);
 		
+		GenericMethods methods=new GenericMethods();
 		
+		waitForCasesToLoad();
+		searchAppID(caseName);
+		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
+		String appID=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID");
 		
+		methods.click(driver, basePage.getEleforParticularCase(appID, "View"));
+		actionOnQuestion(caseName);
+		methods.click(driver, ops.getEleFormVerifyButton());
 	}
 }
