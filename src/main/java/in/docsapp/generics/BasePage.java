@@ -20,11 +20,13 @@ public class BasePage {
 	
 	public WebElement getElelogoutButton()
 	{
+		BaseTest.element = "Logout link";
 		return elelogoutButton;
 	}
 	
 	public WebElement getEleforParticularCase(String appID, String text)
 	{
+		BaseTest.element = text+" button";
 		return driver.findElement(By.xpath("//div[text()='"+appID+"']/../../../..//*[contains(text(),'"+text+"')]"));
 	}
 	

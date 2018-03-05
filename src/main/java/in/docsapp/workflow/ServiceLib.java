@@ -44,7 +44,7 @@ public class ServiceLib extends BasePage{
 	
 	public ServiceLib(WebDriver driver) {
 		super(driver);
-		PageFactory.initElements(driver, this);
+		
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class ServiceLib extends BasePage{
 	 * 
 	 * 
 	 */
-	public void loginService(String userName, String password)
+	public void login(String userName, String password)
 	{
 		try {
 		SigninPagePagePO signin=new SigninPagePagePO(driver);
@@ -85,7 +85,7 @@ public class ServiceLib extends BasePage{
 	 * 
 	 * 
 	 */
-	public void initService(String typeOfUser, String caseOrUsername)
+	public void loginservice(String typeOfUser, String caseOrUsername)
 	{
 		try {
 		
@@ -173,7 +173,7 @@ public class ServiceLib extends BasePage{
 	 * 
 	 * </p>
 	 */
-	public void exit()
+	public void logoutService()
 	{
 		BasePage base=new BasePage(driver);
 		GenericMethods methods=new GenericMethods();
@@ -353,7 +353,7 @@ public class ServiceLib extends BasePage{
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		String appID=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID");
 		String doctorName=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Doctor");
-		methods.click(driver, ops.getEleApplicationIDAssign(appID));
+		methods.click(driver, ops.getEleforParticularCase(appID, "Assign"));
 		methods.click(driver, ops.getEleDoctorsName(doctorName));
 		try {
 		driver.switchTo().alert().accept();

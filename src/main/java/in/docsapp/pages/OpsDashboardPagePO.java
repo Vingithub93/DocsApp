@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import in.docsapp.generics.BasePage;
+import in.docsapp.generics.BaseTest;
 
 public class OpsDashboardPagePO extends BasePage {
 	
@@ -21,12 +22,8 @@ public class OpsDashboardPagePO extends BasePage {
 	
 	public WebElement getEleAddButton()
 	{
+		BaseTest.element = "Add new case button in ops dashboard";
 		return eleAddButton;
-	}
-	
-	public WebElement getEleApplicationIDAssign(String appID)
-	{
-		return driver.findElement(By.xpath("//div[text()='"+appID+"']/../../../..//div[contains(text(),'Assign')]"));
 	}
 	
 	@FindBy(xpath="(//input[@type='search' or @placeholder='Search...'])[1]")
@@ -34,11 +31,13 @@ public class OpsDashboardPagePO extends BasePage {
 	
 	public WebElement getEleAppIDSearchTextField()
 	{
+		BaseTest.element = "Application ID search text field";
 		return eleAppIDSearchTextField;
 	}
 	
 	public WebElement getEleDoctorsName(String doctorName)
 	{
+		BaseTest.element = doctorName+" button in assign doctor";
 		return driver.findElement(By.xpath("//*[contains(text(),'"+doctorName+"')]"));
 	}
 	
@@ -47,6 +46,7 @@ public class OpsDashboardPagePO extends BasePage {
 	
 	public WebElement getEleFormVerifyButton()
 	{
+		BaseTest.element = "Verify button in ops verification form";
 		return eleFormVerifyButton;
 	}
 }

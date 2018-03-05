@@ -5,10 +5,9 @@
     <classes>
       <class name="in.docsapp.tests.Case_01_Test">
         <methods>
+          <include name="addCaseForMAxLifeTest"/>
           <include name="launchApplication"/>
-          <include name="testDiagnoseCaseAsDoctor"/>
           <include name="exitApplication"/>
-          <include name="testAddandAssignNewCase"/>
         </methods>
       </class> <!-- in.docsapp.tests.Case_01_Test -->
     </classes>

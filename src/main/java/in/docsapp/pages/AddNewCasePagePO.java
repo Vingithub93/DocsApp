@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import in.docsapp.generics.BasePage;
+import in.docsapp.generics.BaseTest;
 
 public class AddNewCasePagePO extends BasePage{
 	
@@ -15,6 +16,7 @@ public class AddNewCasePagePO extends BasePage{
 		super(driver);
 		PageFactory.initElements(driver,this);
 	}
+	
 	@FindAll
 	({
 		@FindBy(id="add_appId"),
@@ -24,8 +26,10 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleApplicationIDTextField()
 	{
+		BaseTest.element = "Application ID Text Field";
 		return eleApplicationIDTextField;
 	}
+	
 	@FindAll
 	({
 		@FindBy(id="add_name"),
@@ -35,6 +39,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleNameTextField()
 	{
+		BaseTest.element = "Name Text Field";
 		return eleNameTextField;
 	}
 	@FindAll
@@ -46,6 +51,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getElePhoneTextField()
 	{
+		BaseTest.element = "Phone Number Text Field";
 		return elePhoneTextField;
 	}
 	@FindAll
@@ -57,6 +63,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleAltPhoneTextField()
 	{
+		BaseTest.element = "Alt Phone Text Field";
 		return eleAltPhoneTextField;
 	}
 	@FindAll
@@ -68,6 +75,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleDayDOBTextField()
 	{
+		
 		return eleDayDOBTextField;
 	}
 	@FindAll
@@ -90,6 +98,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleYearDOBTextField()
 	{
+		BaseTest.element = "Date of Birth Text Field";
 		return eleYearDOBTextField;
 	}
 	
@@ -110,6 +119,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleAddressTextField()
 	{
+		BaseTest.element = "Address Text Field";
 		return eleAddressTextField;
 	}
 	
@@ -131,6 +141,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getElePANTextField()
 	{
+		BaseTest.element = "PAN details Text Field";
 		return elePANTextField;
 	}
 	
@@ -144,6 +155,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getElePlanTextField()
 	{
+		BaseTest.element = "Plan Details Text Field";
 		return elePlanTextField;
 	}
 	@FindAll
@@ -155,6 +167,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleNomineeNameTextField()
 	{
+		BaseTest.element = "Nominee Name Text Field";
 		return eleNomineeNameTextField;
 	}
 	
@@ -167,6 +180,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleNomineeDOBTextField()
 	{
+		BaseTest.element = "Nominee's Date of birth Text Field";
 		return eleNomineeDOBTextField;
 	}
 	
@@ -180,6 +194,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleSubmitButton()
 	{
+		BaseTest.element = "Add new case form submit button";
 		return eleSubmitButton;
 	}
 	@FindAll
@@ -191,6 +206,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleSubmitAddAnotherButton()
 	{
+		BaseTest.element = "Submit and add another button";
 		return eleSubmitAddAnotherButton;
 	}
 	

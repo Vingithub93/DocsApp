@@ -1,11 +1,14 @@
 package in.docsapp.generics;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +21,29 @@ import org.openqa.selenium.support.ui.Select;
  *
  */
 public class GenericMethods {
+	
+	
+	
+	public String globalTimeStamp = TimeStamp();
+	
+	public String extent_path="./reports/CurrentRunResults/"+"Extentreport_"+globalTimeStamp+"/";
+	
+	public static ExtentReportUtils extentUtils=new ExtentReportUtils();
+	
+	//creates path
+	public String createPath(String path){
+		File file=new File(path);
+		try
+		{
+			System.out.println("Creating path "+path);
+			file.mkdir();
+		}
+		catch(Exception e)
+		{	
+			System.out.println("Failed to create path "+path);
+		}
+		return path;
+	}
 	
 	//To read the value from PROPERTIES file
 		public static String getConfigProperty(String key)
@@ -54,6 +80,8 @@ public class GenericMethods {
 		{			
 			Select sel = new Select(element);		
 			sel.selectByVisibleText(text);
+			extentUtils.logInfo("Selected the " + text + " from the dropdown");
+			System.out.println("Selected the " + text + " from the dropdown");
 		}
 		
 		public static void selectbyValue(WebElement element, String value)			
@@ -122,5 +150,17 @@ public class GenericMethods {
 			}
 		}
 		
-		
+		public void moveOldReports(){
+			try 
+			{
+				System.out.println("Moving old reports");
+				File destFolder = new File(".\\reports\\Oldreports\\MovedOn"+globalTimeStamp);
+				FileUtils.moveToDirectory(new File(".\\reports\\CurrentRunResults\\"),destFolder,true);
+				//FileUtils.moveToDirectory(new File(".\\src\\test\\CurrentRunResults\\ScreenShots\\"),destFolder,true);
+			}
+			catch (IOException e) 
+			{
+				e.printStackTrace();
+			}
+		}
 }

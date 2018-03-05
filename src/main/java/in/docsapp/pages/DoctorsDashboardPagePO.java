@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import in.docsapp.generics.BasePage;
+import in.docsapp.generics.BaseTest;
 
 public class DoctorsDashboardPagePO extends BasePage {
 	
@@ -35,6 +36,7 @@ public class DoctorsDashboardPagePO extends BasePage {
 	
 	public WebElement getEleDiagnosisSubmitButton()
 	{
+		BaseTest.element = "Submit button in diagnose form";
 		return eleDiagnosisSubmitButton;
 	}
 	
@@ -46,6 +48,7 @@ public class DoctorsDashboardPagePO extends BasePage {
 	
 	public WebElement getEleFormCloseButton()
 	{
+		BaseTest.element = "close button in diagnose form";
 		return eleFormCloseButton;
 	}
 	

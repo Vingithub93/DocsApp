@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import in.docsapp.generics.BasePage;
+import in.docsapp.generics.BaseTest;
 
 public class SigninPagePagePO extends BasePage{
 	
@@ -15,6 +16,7 @@ public class SigninPagePagePO extends BasePage{
 		super(driver);
 		PageFactory.initElements(driver,this);
 	}
+	
 	@FindAll
 	({
 		@FindBy(name="txtemail"),
@@ -22,32 +24,36 @@ public class SigninPagePagePO extends BasePage{
 	})
 	private WebElement eleSigninUsername;
 	
-public WebElement getEleSigninUsername()
-{
-			return eleSigninUsername;
-}
-@FindAll
-({
+	public WebElement getEleSigninUsername()
+	{
+		BaseTest.element = "Username in Signin page";
+		return eleSigninUsername;
+	}
+	
+	@FindAll
+	({
 	@FindBy(name="txtpassword"),
 	@FindBy(xpath="//*[@type='password' or @placeholder='Password']")
-})
-private WebElement eleSigninPassword;
+	})
+	private WebElement eleSigninPassword;
 
-public WebElement getEleSigninPassword()
-{
+	public WebElement getEleSigninPassword()
+	{
+		BaseTest.element = "Password in Signin page";
 		return eleSigninPassword;
-}
-@FindAll
-({
+	}
+	@FindAll
+	({
 	@FindBy(className="SubmitButton_8baflu"),
 	@FindBy(xpath="//*[@type='submit' or @value='Sign In']")
-})
-private WebElement eleSigninButton;
+	})
+	private WebElement eleSigninButton;
 
-public WebElement getEleSigninButton()
-{
+	public WebElement getEleSigninButton()
+	{
+		BaseTest.element = "Signin Button";
 		return eleSigninButton;
-}
+	}
   
 
 }

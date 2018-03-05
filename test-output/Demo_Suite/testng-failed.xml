@@ -3,13 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Demo_Suite]">
   <test name="Demo_Test(failed)">
     <classes>
-      <class name="in.docsapp.tests.AssignCaseTest">
+      <class name="in.docsapp.tests.MaxLifeCaseTest">
         <methods>
-          <include name="testAssignCase"/>
+          <include name="CreateExtentReport"/>
+          <include name="endtest"/>
           <include name="launchApplication"/>
+          <include name="closeExtentReport"/>
           <include name="exitApplication"/>
+          <include name="createDiagnoseVerifyMaxLifeCase"/>
+          <include name="getTestDetails"/>
         </methods>
-      </class> <!-- in.docsapp.tests.AssignCaseTest -->
+      </class> <!-- in.docsapp.tests.MaxLifeCaseTest -->
     </classes>
   </test> <!-- Demo_Test(failed) -->
 </suite> <!-- Failed suite [Demo_Suite] -->
