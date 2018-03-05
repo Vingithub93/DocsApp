@@ -30,7 +30,6 @@ public class MyListners implements ITestListener, WebDriverEventListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		
 		extentUtils.logFail("Failed test case : " + result.getMethod().getMethodName());	
 		System.out.println("Failed test case : " + result.getMethod().getMethodName());
 		

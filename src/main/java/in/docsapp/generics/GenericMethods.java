@@ -113,13 +113,14 @@ public class GenericMethods{
 		 * wait for the expected element to appear in GUI , wait maximunm 40 sec
 
 		 */
-		public void waitUntilElementISVisible(WebDriver driver, WebElement element) {
+		public boolean waitUntilElementISVisible(WebDriver driver, WebElement element) {
 			int count=0;
-			
+			boolean flag=false;
 			while(count<5) 
 			{
 				try {
 					element.isDisplayed();
+					flag =true;
 					break;
 				}
 				catch (Throwable e) 
@@ -135,6 +136,26 @@ public class GenericMethods{
 					}
 				}
 			}
+			return flag;
+		}
+		
+		public boolean waitUntilElementInvisible(WebDriver driver, WebElement element) {
+			int count=0;
+			boolean flag=false;
+			while(count<5) 
+			{
+				try {
+					element.isDisplayed();
+					Thread.sleep(1000);
+					count++;
+				}
+				catch (Throwable e) 
+				{
+					flag=true;
+					break;
+				}
+			}
+			return flag;
 		}
 		
 		public void type(WebDriver driver,WebElement textElement, String data) {
@@ -181,7 +202,7 @@ public class GenericMethods{
 					TakesScreenshot scrShot =((TakesScreenshot)driver);
 	                File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
 	                GenericMethods gen =new GenericMethods();
-	                File DestFile=new File("./screenshots/one.jpg");
+	                File DestFile=new File("./screenshots/"+gen.globalTimeStamp+".jpg");
 
 	                try 
 	                {

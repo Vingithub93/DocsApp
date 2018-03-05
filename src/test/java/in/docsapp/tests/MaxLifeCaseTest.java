@@ -24,13 +24,13 @@ public class MaxLifeCaseTest extends BaseTest{
 	 * step 1 : Login to the application as Ops<br>
 	 * step 2 : Creating a new max life case<br>
 	 * step 3 : Assigning the created case to a doctor<br>
-	 * step 4 : Logout from the application
+	 * step 4 : Logout from the application<br>
 	 * step 5 : Login to the application as Doctor<br>
 	 * step 6 : Diagnose the created case as doctor<br>
 	 * step 7 : Logout from the application<br>
-	 * step 8 : Login to the application as Ops
-	 * step 9 : Verifying the diagnosed case as Ops
-	 * step 10 : Logout from the application
+	 * step 8 : Login to the application as Ops<br>
+	 * step 9 : Verifying the diagnosed case as Ops<br>
+	 * step 10 : Logout from the application<br>
 	 * 
 	 * 
 	 */

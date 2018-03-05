@@ -29,7 +29,7 @@ public class Assertion {
 		
 		// To verify if a WebElement is displayed
 			public static boolean elementNotDisplayed(WebDriver driver, WebElement element) {
-				 Wait.waitForElementInvisibility(driver, element);
+//				 Wait.waitForElementInvisibility(driver, element);
 				 Assert.assertFalse(element.isDisplayed(), "Element is not displayed");
 				 return true;
 			}

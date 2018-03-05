@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Demo_Suite" duration-ms="49215" started-at="2018-03-05T15:40:36Z" finished-at="2018-03-05T15:41:25Z">
+  <suite name="Default suite" duration-ms="52346" started-at="2018-03-05T19:34:09Z" finished-at="2018-03-05T19:35:01Z">
     <groups>
     </groups>
-    <test name="Demo_Test" duration-ms="49215" started-at="2018-03-05T15:40:36Z" finished-at="2018-03-05T15:41:25Z">
+    <test name="Default test" duration-ms="52346" started-at="2018-03-05T19:34:09Z" finished-at="2018-03-05T19:35:01Z">
       <class name="in.docsapp.tests.MaxLifeCaseTest">
-        <test-method status="PASS" signature="CreateExtentReport()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@5442a311]" name="CreateExtentReport" is-config="true" duration-ms="19" started-at="2018-03-05T21:10:36Z" finished-at="2018-03-05T21:10:36Z">
+        <test-method status="PASS" signature="CreateExtentReport()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="CreateExtentReport" is-config="true" duration-ms="32" started-at="2018-03-06T01:04:08Z" finished-at="2018-03-06T01:04:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateExtentReport -->
-        <test-method status="PASS" signature="launchApplication()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@5442a311]" name="launchApplication" is-config="true" duration-ms="15472" started-at="2018-03-05T21:10:36Z" finished-at="2018-03-05T21:10:51Z">
+        <test-method status="PASS" signature="launchApplication()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="launchApplication" is-config="true" duration-ms="20858" started-at="2018-03-06T01:04:09Z" finished-at="2018-03-06T01:04:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method status="PASS" signature="getTestDetails(java.lang.reflect.Method)[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@5442a311]" name="getTestDetails" is-config="true" duration-ms="4" started-at="2018-03-05T21:10:51Z" finished-at="2018-03-05T21:10:51Z">
+        <test-method status="PASS" signature="getTestDetails(java.lang.reflect.Method)[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="getTestDetails" is-config="true" duration-ms="8" started-at="2018-03-06T01:04:29Z" finished-at="2018-03-06T01:04:29Z">
           <params>
             <param index="0">
               <value>
@@ -26,34 +26,24 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getTestDetails -->
-        <test-method status="FAIL" signature="createDiagnoseVerifyMaxLifeCase()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@5442a311]" name="createDiagnoseVerifyMaxLifeCase" duration-ms="33420" started-at="2018-03-05T21:10:51Z" finished-at="2018-03-05T21:11:25Z">
-          <exception class="org.openqa.selenium.TimeoutException">
+        <test-method status="FAIL" signature="createDiagnoseVerifyMaxLifeCase()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="createDiagnoseVerifyMaxLifeCase" duration-ms="30893" started-at="2018-03-06T01:04:29Z" finished-at="2018-03-06T01:05:00Z">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Expected condition failed: waiting for invisibility of [[ChromeDriver: chrome on XP (3f38c25cc8a7c7f7de33266e7dd9efcd)] -> id: submit_btn] (tried for 10 second(s) with 500 MILLISECONDS interval)
-Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
-System info: host: 'TYSS-MF-034', ip: '10.10.14.100', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_60'
-Driver info: org.openqa.selenium.support.events.EventFiringWebDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.36.540470 (e522d04694c7eb..., userDataDir: C:\Users\AUTOMA~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 64.0.3282.186, webStorageEnabled: true}
-Session ID: 3f38c25cc8a7c7f7de33266e7dd9efcd]]>
+              <![CDATA[Element is not displayed expected [false] but found [true]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for invisibility of [[ChromeDriver: chrome on XP (3f38c25cc8a7c7f7de33266e7dd9efcd)] -> id: submit_btn] (tried for 10 second(s) with 500 MILLISECONDS interval)
-Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:01:39.354Z'
-System info: host: 'TYSS-MF-034', ip: '10.10.14.100', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_60'
-Driver info: org.openqa.selenium.support.events.EventFiringWebDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.36.540470 (e522d04694c7eb..., userDataDir: C:\Users\AUTOMA~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 64.0.3282.186, webStorageEnabled: true}
-Session ID: 3f38c25cc8a7c7f7de33266e7dd9efcd
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at in.docsapp.generics.Wait.waitForElementInvisibility(Wait.java:58)
-	at in.docsapp.generics.Assertion.elementNotDisplayed(Assertion.java:32)
-	at in.docsapp.workflow.ServiceLib.createCaseOps(ServiceLib.java:386)
-	at in.docsapp.workflow.ServiceLib.addCaseFlow(ServiceLib.java:514)
+              <![CDATA[java.lang.AssertionError: Element is not displayed expected [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertFalse(Assert.java:62)
+	at in.docsapp.generics.Assertion.elementNotDisplayed(Assertion.java:33)
+	at in.docsapp.workflow.ServiceLib.createCaseOps(ServiceLib.java:397)
+	at in.docsapp.workflow.ServiceLib.addCaseFlow(ServiceLib.java:515)
 	at in.docsapp.tests.MaxLifeCaseTest.createDiagnoseVerifyMaxLifeCase(MaxLifeCaseTest.java:48)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
+	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
@@ -77,30 +67,30 @@ Session ID: 3f38c25cc8a7c7f7de33266e7dd9efcd
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createDiagnoseVerifyMaxLifeCase -->
-        <test-method status="PASS" signature="endtest(org.testng.ITestResult)[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@5442a311]" name="endtest" is-config="true" duration-ms="189" started-at="2018-03-05T21:11:25Z" finished-at="2018-03-05T21:11:25Z">
+        <test-method status="PASS" signature="endtest(org.testng.ITestResult)[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="endtest" is-config="true" duration-ms="354" started-at="2018-03-06T01:05:00Z" finished-at="2018-03-06T01:05:01Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=createDiagnoseVerifyMaxLifeCase status=FAILURE method=MaxLifeCaseTest.createDiagnoseVerifyMaxLifeCase()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@5442a311] output={null}]]]>
+                <![CDATA[[TestResult name=createDiagnoseVerifyMaxLifeCase status=FAILURE method=MaxLifeCaseTest.createDiagnoseVerifyMaxLifeCase()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endtest -->
-        <test-method status="PASS" signature="exitApplication()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@5442a311]" name="exitApplication" is-config="true" duration-ms="109" started-at="2018-03-05T21:11:25Z" finished-at="2018-03-05T21:11:25Z">
+        <test-method status="PASS" signature="exitApplication()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="exitApplication" is-config="true" duration-ms="203" started-at="2018-03-06T01:05:01Z" finished-at="2018-03-06T01:05:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- exitApplication -->
-        <test-method status="PASS" signature="closeExtentReport()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@5442a311]" name="closeExtentReport" is-config="true" duration-ms="26" started-at="2018-03-05T21:11:25Z" finished-at="2018-03-05T21:11:25Z">
+        <test-method status="PASS" signature="closeExtentReport()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="closeExtentReport" is-config="true" duration-ms="85" started-at="2018-03-06T01:05:01Z" finished-at="2018-03-06T01:05:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeExtentReport -->
       </class> <!-- in.docsapp.tests.MaxLifeCaseTest -->
-    </test> <!-- Demo_Test -->
-  </suite> <!-- Demo_Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

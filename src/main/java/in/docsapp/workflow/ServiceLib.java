@@ -73,12 +73,13 @@ public class ServiceLib extends BasePage{
 			
 		SigninPagePagePO signin=new SigninPagePagePO(driver);
 		GenericMethods methods=new GenericMethods();
-		if(Assertion.displayElement(driver, signin.getEleSigninText()))
+		if(methods.waitUntilElementISVisible(driver, signin.getEleSigninText()))
 		{
 			extentUtils.logPass("Application is launched");
 		}
 		else
 		{
+			methods.takeScreenShot(driver);
 			extentUtils.logFail("Unable to launch the application");
 			Assertion.displayElement(driver, signin.getEleSigninText());
 		}
@@ -87,7 +88,8 @@ public class ServiceLib extends BasePage{
 		methods.type(driver, signin.getEleSigninPassword(), password);
 		methods.customDelay(5);
 		methods.click(driver, signin.getEleSigninButton());
-		if(Assertion.displayElement(driver, signin.getDocsAppLogo()))
+		
+		if(methods.waitUntilElementISVisible(driver, signin.getDocsAppLogo()))
 		{
 			extentUtils.logPass("Logged in to the application with "+userName);
 		}
@@ -122,12 +124,13 @@ public class ServiceLib extends BasePage{
 		SigninPagePagePO signin=new SigninPagePagePO(driver);
 		GenericMethods methods=new GenericMethods();
 		
-		if(Assertion.displayElement(driver, signin.getEleSigninText()))
+		if(methods.waitUntilElementISVisible(driver, signin.getEleSigninText()))
 		{
 			extentUtils.logPass("Application is launched");
 		}
 		else
 		{
+			methods.takeScreenShot(driver);
 			extentUtils.logFail("Unable to launch the application");
 			Assertion.displayElement(driver, signin.getEleSigninText());
 		}
@@ -201,7 +204,7 @@ public class ServiceLib extends BasePage{
 		methods.customDelay(3);
 		methods.click(driver, signin.getEleSigninButton());
 
-		if(Assertion.displayElement(driver, signin.getDocsAppLogo()))
+		if(methods.waitUntilElementISVisible(driver, signin.getDocsAppLogo()))
 		{
 			extentUtils.logPass("Logged in to the application with "+userName);
 		}
@@ -231,7 +234,7 @@ public class ServiceLib extends BasePage{
 		methods.customDelay(3);
 		methods.click(driver, base.getElelogoutButton());
 		SigninPagePagePO signin=new SigninPagePagePO(driver);
-		if(Assertion.displayElement(driver, signin.getEleSigninText()))
+		if(methods.waitUntilElementISVisible(driver, signin.getEleSigninText()))
 		{
 			extentUtils.logPass("User is logged out from the application");
 		}
@@ -383,15 +386,13 @@ public class ServiceLib extends BasePage{
 		
 		methods.click(driver, addCase.getEleSubmitButton());
 		
-		if(Assertion.elementNotDisplayed(driver, addCase.getEleSubmitButton()))
+		if(methods.waitUntilElementInvisible(driver, addCase.getEleSubmitButton()))
 		{
 			extentUtils.logPass("New case is created successfully");
 		}
 		else
 		{
-			System.out.println("1");
 			methods.takeScreenShot(driver);
-			System.out.println("2");
 			extentUtils.logFail("Unable create new case");
 			Assertion.elementNotDisplayed(driver, addCase.getEleSubmitButton());
 		}
@@ -446,7 +447,7 @@ public class ServiceLib extends BasePage{
 		}
 		catch (Throwable e) {
 		}
-		if(Assertion.displayElement(driver, ops.getEleforParticularCase(appID, "Re-assign")))
+		if(methods.waitUntilElementISVisible(driver, ops.getEleforParticularCase(appID, "Re-assign")))
 		{
 			extentUtils.logPass("New case is assigned to "+doctorName);
 		}
@@ -539,7 +540,7 @@ public class ServiceLib extends BasePage{
 		
 		methods.click(driver, doctor.getEleDiagnosisSubmitButton());
 		
-		if(Assertion.elementNotDisplayed(driver, doctor.getEleDiagnosisSubmitButton()))
+		if(methods.waitUntilElementInvisible(driver, doctor.getEleDiagnosisSubmitButton()))
 		{
 			extentUtils.logPass("Diagnose of the case is successful");
 		}
@@ -575,7 +576,7 @@ public class ServiceLib extends BasePage{
 		methods.click(driver, basePage.getEleforParticularCase(appID, "View"));
 		actionOnQuestion(caseName);
 		methods.click(driver, ops.getEleFormVerifyButton());
-		if(Assertion.elementNotDisplayed(driver, ops.getEleFormVerifyButton()))
+		if(methods.waitUntilElementInvisible(driver, ops.getEleFormVerifyButton()))
 		{
 			extentUtils.logPass("Diagnosed case is verified by ops");
 		}
