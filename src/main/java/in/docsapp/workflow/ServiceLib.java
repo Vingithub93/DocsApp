@@ -7,9 +7,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Listeners;
 
+import in.docsapp.generics.Assertion;
 import in.docsapp.generics.BasePage;
+import in.docsapp.generics.BaseTest;
 import in.docsapp.generics.ExcelLibrary;
+import in.docsapp.generics.ExtentReportUtils;
 import in.docsapp.generics.GenericMethods;
 import in.docsapp.generics.Wait;
 import in.docsapp.pages.AddNewCasePagePO;
@@ -39,14 +43,19 @@ import in.docsapp.pages.SigninPagePagePO;
  *
  * @author Vinayak
  */
+
+
 public class ServiceLib extends BasePage{
 
+	public ExtentReportUtils extentUtils=new ExtentReportUtils();
+	
 	
 	public ServiceLib(WebDriver driver) {
 		super(driver);
 		
 	}
-
+	
+	
 	/**
 	 * <p>
 	 *  <b>Note:</b>The loginService method helps login to the application based on the usename and password
@@ -61,13 +70,33 @@ public class ServiceLib extends BasePage{
 	public void login(String userName, String password)
 	{
 		try {
+			
 		SigninPagePagePO signin=new SigninPagePagePO(driver);
 		GenericMethods methods=new GenericMethods();
+		if(Assertion.displayElement(driver, signin.getEleSigninText()))
+		{
+			extentUtils.logPass("Application is launched");
+		}
+		else
+		{
+			extentUtils.logFail("Unable to launch the application");
+			Assertion.displayElement(driver, signin.getEleSigninText());
+		}
 		
 		methods.type(driver, signin.getEleSigninUsername(), userName);
 		methods.type(driver, signin.getEleSigninPassword(), password);
 		methods.customDelay(5);
 		methods.click(driver, signin.getEleSigninButton());
+		if(Assertion.displayElement(driver, signin.getDocsAppLogo()))
+		{
+			extentUtils.logPass("Logged in to the application with "+userName);
+		}
+		else
+		{
+			methods.takeScreenShot(driver);
+			extentUtils.logFail("Unable to login to the application with "+userName);
+			Assertion.displayElement(driver, signin.getDocsAppLogo());
+		}
 		}
 		catch (Throwable e) {
 			System.out.println("Unable to login to the application using "+userName+" "+ password);
@@ -89,8 +118,19 @@ public class ServiceLib extends BasePage{
 	{
 		try {
 		
+			
 		SigninPagePagePO signin=new SigninPagePagePO(driver);
 		GenericMethods methods=new GenericMethods();
+		
+		if(Assertion.displayElement(driver, signin.getEleSigninText()))
+		{
+			extentUtils.logPass("Application is launched");
+		}
+		else
+		{
+			extentUtils.logFail("Unable to launch the application");
+			Assertion.displayElement(driver, signin.getEleSigninText());
+		}
 		
 		String user=typeOfUser.toLowerCase();
 		System.out.println(user);
@@ -158,8 +198,19 @@ public class ServiceLib extends BasePage{
 		
 		methods.type(driver, signin.getEleSigninUsername(), userName);
 		methods.type(driver, signin.getEleSigninPassword(), password);
-		methods.customDelay(5);
+		methods.customDelay(3);
 		methods.click(driver, signin.getEleSigninButton());
+
+		if(Assertion.displayElement(driver, signin.getDocsAppLogo()))
+		{
+			extentUtils.logPass("Logged in to the application with "+userName);
+		}
+		else
+		{
+			methods.takeScreenShot(driver);
+			extentUtils.logFail("Unable to login to the application with "+userName);
+			Assertion.displayElement(driver, signin.getDocsAppLogo());
+		}
 		}
 		catch (Throwable e) {
 			System.out.println("Unable to login based on "+ caseOrUsername);
@@ -179,6 +230,17 @@ public class ServiceLib extends BasePage{
 		GenericMethods methods=new GenericMethods();
 		methods.customDelay(3);
 		methods.click(driver, base.getElelogoutButton());
+		SigninPagePagePO signin=new SigninPagePagePO(driver);
+		if(Assertion.displayElement(driver, signin.getEleSigninText()))
+		{
+			extentUtils.logPass("User is logged out from the application");
+		}
+		else
+		{
+			methods.takeScreenShot(driver);
+			extentUtils.logFail("Unable to logout from the application");
+			Assertion.displayElement(driver, signin.getEleSigninText());
+		}
 	}
 	
 	/**
@@ -193,7 +255,7 @@ public class ServiceLib extends BasePage{
 	public void actionOnQuestion(String caseName)
 	{
 		GenericMethods methods=new GenericMethods();
-		
+		BasePage base=new BasePage(driver);
 		String sheetName="";
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		
@@ -224,14 +286,18 @@ public class ServiceLib extends BasePage{
 			if(option.equalsIgnoreCase("yes"))
 			{
 				Wait.waitForElementClickable(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")));
-
+				
+				BaseTest.element="Yes button for question : "+question;
 				methods.click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")));
 				
 				try {
 					List<WebElement> ele = driver.findElements(By.xpath("//*[contains(text(),'"+question+"')]/../..//div[last()]//input"));
 					for(WebElement we:ele)
 					{
+						BaseTest.element="";
 						methods.clearTextField(driver, we);
+
+						BaseTest.element=" question : "+question;
 						methods.type(driver, we, answer);
 					}
 				}
@@ -240,14 +306,19 @@ public class ServiceLib extends BasePage{
 				}
 			}
 			else if (option.equalsIgnoreCase("no")) {
+				BaseTest.element="No button for question : "+question;
 				methods.click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'No')]")));
+				
 			}
 			else if (option.equalsIgnoreCase("NA")) {
 				try {
 					List<WebElement> ele = driver.findElements(By.xpath("//*[contains(text(),'"+question+"')]/../..//div[last()]//input"));
 					for(WebElement we:ele)
 					{
+						BaseTest.element="Cleared the text box";
 						methods.clearTextField(driver, we);
+						
+						BaseTest.element=answer+" for question : "+question;
 						methods.type(driver, we, answer);
 					}
 				}
@@ -258,6 +329,7 @@ public class ServiceLib extends BasePage{
 				
 			
 		}
+		
 		
 	}
 	
@@ -310,6 +382,19 @@ public class ServiceLib extends BasePage{
 		methods.type(driver, addCase.getEleNomineeDOBTextField(), ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Nominee_DOB"));
 		
 		methods.click(driver, addCase.getEleSubmitButton());
+		
+		if(Assertion.elementNotDisplayed(driver, addCase.getEleSubmitButton()))
+		{
+			extentUtils.logPass("New case is created successfully");
+		}
+		else
+		{
+			System.out.println("1");
+			methods.takeScreenShot(driver);
+			System.out.println("2");
+			extentUtils.logFail("Unable create new case");
+			Assertion.elementNotDisplayed(driver, addCase.getEleSubmitButton());
+		}
 	}
 	
 	/**
@@ -355,10 +440,21 @@ public class ServiceLib extends BasePage{
 		String doctorName=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Doctor");
 		methods.click(driver, ops.getEleforParticularCase(appID, "Assign"));
 		methods.click(driver, ops.getEleDoctorsName(doctorName));
+		
 		try {
 		driver.switchTo().alert().accept();
 		}
 		catch (Throwable e) {
+		}
+		if(Assertion.displayElement(driver, ops.getEleforParticularCase(appID, "Re-assign")))
+		{
+			extentUtils.logPass("New case is assigned to "+doctorName);
+		}
+		else
+		{
+			methods.takeScreenShot(driver);
+			extentUtils.logFail("Unable assign new case to "+doctorName);
+			Assertion.displayElement(driver, ops.getEleforParticularCase(appID, "Re-assign"));
 		}
 	}
 	
@@ -442,6 +538,17 @@ public class ServiceLib extends BasePage{
 		actionOnQuestion(caseName);
 		
 		methods.click(driver, doctor.getEleDiagnosisSubmitButton());
+		
+		if(Assertion.elementNotDisplayed(driver, doctor.getEleDiagnosisSubmitButton()))
+		{
+			extentUtils.logPass("Diagnose of the case is successful");
+		}
+		else
+		{
+			methods.takeScreenShot(driver);
+			extentUtils.logFail("Diagnose of the case is unsuccessful");
+			Assertion.elementNotDisplayed(driver, doctor.getEleDiagnosisSubmitButton());
+		}
 	}
 	
 	
@@ -468,5 +575,15 @@ public class ServiceLib extends BasePage{
 		methods.click(driver, basePage.getEleforParticularCase(appID, "View"));
 		actionOnQuestion(caseName);
 		methods.click(driver, ops.getEleFormVerifyButton());
+		if(Assertion.elementNotDisplayed(driver, ops.getEleFormVerifyButton()))
+		{
+			extentUtils.logPass("Diagnosed case is verified by ops");
+		}
+		else
+		{
+			methods.takeScreenShot(driver);
+			extentUtils.logFail("Unable to verify the diagnosed case");
+			Assertion.elementNotDisplayed(driver, ops.getEleFormVerifyButton());
+		}
 	}
 }

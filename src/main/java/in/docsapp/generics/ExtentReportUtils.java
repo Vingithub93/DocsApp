@@ -3,13 +3,15 @@
  */
 package in.docsapp.generics;
 
+
+
 import com.relevantcodes.extentreports.LogStatus;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class ExtentReportUtils.
  */
-public class ExtentReportUtils 
+public class ExtentReportUtils
 {
 
 	/**

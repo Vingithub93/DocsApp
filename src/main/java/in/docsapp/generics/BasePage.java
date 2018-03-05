@@ -37,4 +37,12 @@ public class BasePage {
 	{
 		return eleLoader;
 	}
+	
+	@FindBy(xpath="//div[@class='LogoContainer_h5zlxv']//img")
+	private WebElement eleDocsAppLogo;
+	
+	public WebElement getDocsAppLogo()
+	{
+		return eleLoader;
+	}
 }

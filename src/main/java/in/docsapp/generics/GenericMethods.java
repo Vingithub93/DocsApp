@@ -11,16 +11,21 @@ import java.util.Properties;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Listeners;
 
 /**
  * 
  * @author Vinayak
  *
  */
-public class GenericMethods {
+
+
+public class GenericMethods{
 	
 	
 	
@@ -110,15 +115,22 @@ public class GenericMethods {
 		 */
 		public void waitUntilElementISVisible(WebDriver driver, WebElement element) {
 			int count=0;
-			while(count<30) {
+			
+			while(count<5) 
+			{
 				try {
 					element.isDisplayed();
 					break;
-				}catch (Throwable e) {
-					try {
+				}
+				catch (Throwable e) 
+				{
+					try 
+					{
 						Thread.sleep(1000);
 						count++;
-					} catch (InterruptedException e1) {
+					} 
+					catch (InterruptedException e1) 
+					{
 						System.out.println("Element is not Displayed = "+element.toString());
 					}
 				}
@@ -163,4 +175,21 @@ public class GenericMethods {
 				e.printStackTrace();
 			}
 		}
+		
+		public void takeScreenShot(WebDriver driver)
+		{
+					TakesScreenshot scrShot =((TakesScreenshot)driver);
+	                File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+	                GenericMethods gen =new GenericMethods();
+	                File DestFile=new File("./screenshots/one.jpg");
+
+	                try 
+	                {
+						FileUtils.copyFile(SrcFile, DestFile);
+					} 
+	                catch (IOException e) {
+						e.printStackTrace();
+					}
+		}
+
 }

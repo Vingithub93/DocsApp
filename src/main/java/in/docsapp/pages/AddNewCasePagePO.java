@@ -75,7 +75,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleDayDOBTextField()
 	{
-		
+		BaseTest.element = "Day Text Field";
 		return eleDayDOBTextField;
 	}
 	@FindAll
@@ -87,6 +87,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleMonthDOBTextField()
 	{
+		BaseTest.element = "Month Text Field";
 		return eleMonthDOBTextField;
 	}
 	@FindAll
@@ -98,7 +99,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleYearDOBTextField()
 	{
-		BaseTest.element = "Date of Birth Text Field";
+		BaseTest.element = "Year Text Field";
 		return eleYearDOBTextField;
 	}
 	
@@ -107,6 +108,7 @@ public class AddNewCasePagePO extends BasePage{
 		
 		public WebElement getEleGenderDropdown()
 		{
+			BaseTest.element = "Gender Dropdown";
 		return eleGenderDropdown;
 		}
 		
@@ -128,6 +130,7 @@ public class AddNewCasePagePO extends BasePage{
 	
 	public WebElement getEleVendorDropdown()
 	{
+		BaseTest.element = "Vendor Dropdown";
 		return eleVendorDropdown;
 	}
 	

@@ -50,4 +50,12 @@ public class Wait {
 		wait=new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.textToBePresentInElement(element, text));	
 	}
+	
+	//Wait for Visibility of Element
+		public static void waitForElementInvisibility(WebDriver driver, WebElement element)
+		{
+			wait=new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.invisibilityOf(element));	
+		}
+	
 }

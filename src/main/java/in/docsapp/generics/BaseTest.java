@@ -1,12 +1,17 @@
 package in.docsapp.generics;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -55,8 +60,6 @@ public class BaseTest extends MyListners {
 		}
 		catch(Exception e)
 		{
-			e.printStackTrace();
-			System.out.println("Unable to create Extent file");
 		}
 	}
 	
@@ -76,7 +79,12 @@ public class BaseTest extends MyListners {
 			ChromeDriverManager.getInstance().setup();
 			driver=new ChromeDriver();
 			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			
+			EventFiringWebDriver e_driver = new EventFiringWebDriver(driver);
+			MyListners eventListener = new MyListners();
+			e_driver.register(eventListener);
+			driver = e_driver;
 			
 			driver.get("https://b2btest.docsapp.in/webviews/telemerdashboardreact/?#!login");
 		}

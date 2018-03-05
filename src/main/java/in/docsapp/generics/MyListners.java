@@ -14,7 +14,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 public class MyListners implements ITestListener, WebDriverEventListener {
 
 	ExtentReportUtils extentUtils = new ExtentReportUtils();
-	GenericMethods gm = new GenericMethods();
+//	GenericMethods gm = new GenericMethods();
 	
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -30,7 +30,8 @@ public class MyListners implements ITestListener, WebDriverEventListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		extentUtils.logFail("Failed test case : " + result.getMethod().getMethodName());		
+		
+		extentUtils.logFail("Failed test case : " + result.getMethod().getMethodName());	
 		System.out.println("Failed test case : " + result.getMethod().getMethodName());
 		
 	}

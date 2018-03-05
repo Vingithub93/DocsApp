@@ -2,6 +2,7 @@ package in.docsapp.generics;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class Assertion {
@@ -19,13 +20,16 @@ public class Assertion {
 		}
 
 		// To verify if a WebElement is displayed
-		public static boolean displayElement(WebElement element) {
-			 Assert.assertTrue(element.isDisplayed(), "Element is not displayed");
+		public static boolean displayElement(WebDriver driver,WebElement element) {
+			GenericMethods gen =new GenericMethods();
+			gen.waitUntilElementISVisible(driver, element);
+			 Assert.assertTrue(element.isDisplayed(), "Element is displayed");
 			 return true;
 		}
 		
 		// To verify if a WebElement is displayed
-			public static boolean elementNotDisplayed(WebElement element) {
+			public static boolean elementNotDisplayed(WebDriver driver, WebElement element) {
+				 Wait.waitForElementInvisibility(driver, element);
 				 Assert.assertFalse(element.isDisplayed(), "Element is not displayed");
 				 return true;
 			}

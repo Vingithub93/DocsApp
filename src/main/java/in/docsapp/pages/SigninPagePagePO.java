@@ -55,7 +55,15 @@ public class SigninPagePagePO extends BasePage{
 		return eleSigninButton;
 	}
   
-
+	//*[contains(text(),'Sign In')]
+	
+	@FindBy(xpath="//*[contains(text(),'Sign In')]")
+	private WebElement eleSigninText;
+	
+	public WebElement getEleSigninText()
+	{
+		return eleSigninText;
+	}
 }
 	
 	

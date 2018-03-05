@@ -43,6 +43,7 @@ public class MaxLifeCaseTest extends BaseTest{
 		/* step 1: Login to the application as ops */
 		service.loginservice("ops", caseName);
 		
+		
 		/*step 2: Creating a new case as ops */
 		service.addCaseFlow(caseName);
 		
