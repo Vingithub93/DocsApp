@@ -2,20 +2,27 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="52346" started-at="2018-03-05T19:34:09Z" finished-at="2018-03-05T19:35:01Z">
+  <suite name="Demo_Suite" duration-ms="61878" started-at="2018-03-05T19:50:25Z" finished-at="2018-03-05T19:51:27Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="52346" started-at="2018-03-05T19:34:09Z" finished-at="2018-03-05T19:35:01Z">
+    <test name="Demo_Test" duration-ms="61878" started-at="2018-03-05T19:50:25Z" finished-at="2018-03-05T19:51:27Z">
       <class name="in.docsapp.tests.MaxLifeCaseTest">
-        <test-method status="PASS" signature="CreateExtentReport()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="CreateExtentReport" is-config="true" duration-ms="32" started-at="2018-03-06T01:04:08Z" finished-at="2018-03-06T01:04:09Z">
+        <test-method status="PASS" signature="CreateExtentReport()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@17cd7a0]" name="CreateExtentReport" is-config="true" duration-ms="38" started-at="2018-03-06T01:20:25Z" finished-at="2018-03-06T01:20:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateExtentReport -->
-        <test-method status="PASS" signature="launchApplication()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="launchApplication" is-config="true" duration-ms="20858" started-at="2018-03-06T01:04:09Z" finished-at="2018-03-06T01:04:29Z">
+        <test-method status="PASS" signature="launchApplication(java.lang.String)[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@17cd7a0]" name="launchApplication" is-config="true" duration-ms="28502" started-at="2018-03-06T01:20:25Z" finished-at="2018-03-06T01:20:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method status="PASS" signature="getTestDetails(java.lang.reflect.Method)[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="getTestDetails" is-config="true" duration-ms="8" started-at="2018-03-06T01:04:29Z" finished-at="2018-03-06T01:04:29Z">
+        <test-method status="PASS" signature="getTestDetails(java.lang.reflect.Method)[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@17cd7a0]" name="getTestDetails" is-config="true" duration-ms="5" started-at="2018-03-06T01:20:53Z" finished-at="2018-03-06T01:20:53Z">
           <params>
             <param index="0">
               <value>
@@ -26,7 +33,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getTestDetails -->
-        <test-method status="FAIL" signature="createDiagnoseVerifyMaxLifeCase()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="createDiagnoseVerifyMaxLifeCase" duration-ms="30893" started-at="2018-03-06T01:04:29Z" finished-at="2018-03-06T01:05:00Z">
+        <test-method status="FAIL" signature="createDiagnoseVerifyMaxLifeCase()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@17cd7a0]" name="createDiagnoseVerifyMaxLifeCase" duration-ms="32818" started-at="2018-03-06T01:20:53Z" finished-at="2018-03-06T01:21:26Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Element is not displayed expected [false] but found [true]]]>
@@ -71,26 +78,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createDiagnoseVerifyMaxLifeCase -->
-        <test-method status="PASS" signature="endtest(org.testng.ITestResult)[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="endtest" is-config="true" duration-ms="354" started-at="2018-03-06T01:05:00Z" finished-at="2018-03-06T01:05:01Z">
+        <test-method status="PASS" signature="endtest(org.testng.ITestResult)[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@17cd7a0]" name="endtest" is-config="true" duration-ms="325" started-at="2018-03-06T01:21:26Z" finished-at="2018-03-06T01:21:26Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=createDiagnoseVerifyMaxLifeCase status=FAILURE method=MaxLifeCaseTest.createDiagnoseVerifyMaxLifeCase()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311] output={null}]]]>
+                <![CDATA[[TestResult name=createDiagnoseVerifyMaxLifeCase status=FAILURE method=MaxLifeCaseTest.createDiagnoseVerifyMaxLifeCase()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@17cd7a0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endtest -->
-        <test-method status="PASS" signature="exitApplication()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="exitApplication" is-config="true" duration-ms="203" started-at="2018-03-06T01:05:01Z" finished-at="2018-03-06T01:05:01Z">
+        <test-method status="PASS" signature="exitApplication()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@17cd7a0]" name="exitApplication" is-config="true" duration-ms="202" started-at="2018-03-06T01:21:26Z" finished-at="2018-03-06T01:21:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- exitApplication -->
-        <test-method status="PASS" signature="closeExtentReport()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@42a311]" name="closeExtentReport" is-config="true" duration-ms="85" started-at="2018-03-06T01:05:01Z" finished-at="2018-03-06T01:05:01Z">
+        <test-method status="PASS" signature="closeExtentReport()[pri:0, instance:in.docsapp.tests.MaxLifeCaseTest@17cd7a0]" name="closeExtentReport" is-config="true" duration-ms="57" started-at="2018-03-06T01:21:27Z" finished-at="2018-03-06T01:21:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeExtentReport -->
       </class> <!-- in.docsapp.tests.MaxLifeCaseTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Demo_Test -->
+  </suite> <!-- Demo_Suite -->
 </testng-results>

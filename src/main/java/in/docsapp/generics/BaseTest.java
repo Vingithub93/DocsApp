@@ -10,7 +10,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.safari.SafariDriverService;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -20,12 +24,16 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
+import io.github.bonigarcia.wdm.OperaDriverManager;
 
 @Listeners(MyListners.class)
 public class BaseTest extends MyListners {
@@ -63,8 +71,9 @@ public class BaseTest extends MyListners {
 		}
 	}
 	
+	@Parameters("browser")
 	@BeforeClass
-	public void launchApplication() {
+	public void launchApplication(String browserName) {
 		
 		try
 		{
@@ -75,9 +84,27 @@ public class BaseTest extends MyListners {
 		{			
 		}
 		try {
-
+			if(browserName.equalsIgnoreCase("chrome"))
+			{
 			ChromeDriverManager.getInstance().setup();
 			driver=new ChromeDriver();
+			}
+			else if(browserName.equalsIgnoreCase("firefox"))
+			{
+				FirefoxDriverManager.getInstance().setup();
+				driver=new FirefoxDriver();
+				
+			}
+			else if(browserName.equalsIgnoreCase("ie"))
+			{
+				InternetExplorerDriverManager.getInstance().setup();
+				driver=new InternetExplorerDriver();
+			}
+			else if(browserName.equalsIgnoreCase("opera"))
+			{
+				OperaDriverManager.getInstance().setup();
+				driver=new OperaDriver();
+			}
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			

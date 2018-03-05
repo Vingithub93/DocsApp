@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Demo_Suite]">
+  <parameter name="browser" value="firefox"/>
   <test name="Demo_Test(failed)">
     <classes>
       <class name="in.docsapp.tests.MaxLifeCaseTest">
