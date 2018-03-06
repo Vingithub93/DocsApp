@@ -2,7 +2,6 @@ package in.docsapp.generics;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class Assertion {
@@ -29,7 +28,8 @@ public class Assertion {
 		
 		// To verify if a WebElement is displayed
 			public static boolean elementNotDisplayed(WebDriver driver, WebElement element) {
-//				 Wait.waitForElementInvisibility(driver, element);
+				GenericMethods gen =new GenericMethods();
+				gen.waitUntilElementInvisible(driver, element);
 				 Assert.assertFalse(element.isDisplayed(), "Element is not displayed");
 				 return true;
 			}

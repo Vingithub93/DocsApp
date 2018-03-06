@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Demo_Suite">
-<parameter name="browser" value="firefox"></parameter>
-  <test name="Demo_Test">
+<suite name="Demo_Suite" parallel="tests">
+
+  <test name="Demo_Test" >
     <classes>
       <class name="in.docsapp.tests.MaxLifeCaseTest"/>
     </classes>
-  </test> <!-- Demo_Test -->
+  </test><!-- Demo_Test  -->
+  
+
+<!--   <test name="Demo_Test_2" > -->
+<!--     <parameter name="browser" value="firefox"></parameter> -->
+<!--     <classes> -->
+<!--       <class name="in.docsapp.tests.MaxLifeCaseTest"/> -->
+<!--     </classes> -->
+<!--   </test> Demo_Test  -->
 </suite> <!-- Demo_Suite -->

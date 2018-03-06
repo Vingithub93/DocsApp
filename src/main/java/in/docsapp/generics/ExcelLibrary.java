@@ -187,7 +187,6 @@ public class ExcelLibrary {
 			public static String getSingleCell(String sheetName, int rowNum, String cellName)
 			{
 				String value="";
-				int count=0;
 				
 				try 
 				{

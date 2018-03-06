@@ -6,8 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Listeners;
 
 import in.docsapp.generics.Assertion;
 import in.docsapp.generics.BasePage;
@@ -86,7 +84,7 @@ public class ServiceLib extends BasePage{
 		
 		methods.type(driver, signin.getEleSigninUsername(), userName);
 		methods.type(driver, signin.getEleSigninPassword(), password);
-		methods.customDelay(5);
+		Wait.waitForElementClickable(driver, signin.getEleSigninButton());
 		methods.click(driver, signin.getEleSigninButton());
 		
 		if(methods.waitUntilElementISVisible(driver, signin.getDocsAppLogo()))
@@ -171,13 +169,13 @@ public class ServiceLib extends BasePage{
 		
 		if(user.contains("ops"))
 		{
-			sheetName=GenericServices.getConfigProperty("sheet2");
+			sheetName=GenericMethods.getConfigProperty("sheet2");
 		}
 		else if (user.contains("doctor")) {
-			sheetName=GenericServices.getConfigProperty("sheet3");
+			sheetName=GenericMethods.getConfigProperty("sheet3");
 		}
 		else if (user.contains("vendor")) {
-			sheetName=GenericServices.getConfigProperty("sheet4");
+			sheetName=GenericMethods.getConfigProperty("sheet4");
 		}
 		else {
 			System.out.println(typeOfUser+" user does not match");
@@ -201,7 +199,8 @@ public class ServiceLib extends BasePage{
 		
 		methods.type(driver, signin.getEleSigninUsername(), userName);
 		methods.type(driver, signin.getEleSigninPassword(), password);
-		methods.customDelay(3);
+//		methods.customDelay(3);
+		Wait.waitForElementClickable(driver, signin.getEleSigninButton());
 		methods.click(driver, signin.getEleSigninButton());
 
 		if(methods.waitUntilElementISVisible(driver, signin.getDocsAppLogo()))
@@ -231,7 +230,8 @@ public class ServiceLib extends BasePage{
 	{
 		BasePage base=new BasePage(driver);
 		GenericMethods methods=new GenericMethods();
-		methods.customDelay(3);
+//		methods.customDelay(3);
+		Wait.waitForElementClickable(driver, base.getElelogoutButton());
 		methods.click(driver, base.getElelogoutButton());
 		SigninPagePagePO signin=new SigninPagePagePO(driver);
 		if(methods.waitUntilElementISVisible(driver, signin.getEleSigninText()))
@@ -258,7 +258,6 @@ public class ServiceLib extends BasePage{
 	public void actionOnQuestion(String caseName)
 	{
 		GenericMethods methods=new GenericMethods();
-		BasePage base=new BasePage(driver);
 		String sheetName="";
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		

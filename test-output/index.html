@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Demo_Suite">
-                    <span>C:\Users\USER\git\DocsApp\testng.xml</span>
+                    <span>C:\Users\Automation\Desktop\DocsApp_Framework\DocsApp\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -128,12 +128,43 @@
                   <a name="createDiagnoseVerifyMaxLifeCase">
                   </a> <!-- createDiagnoseVerifyMaxLifeCase -->
                   <span class="method-name">createDiagnoseVerifyMaxLifeCase</span>
-                  <div class="stack-trace">java.lang.AssertionError: Element is not displayed expected [false] but found [true]
-	at in.docsapp.generics.Assertion.elementNotDisplayed(Assertion.java:33)
-	at in.docsapp.workflow.ServiceLib.createCaseOps(ServiceLib.java:397)
-	at in.docsapp.workflow.ServiceLib.addCaseFlow(ServiceLib.java:515)
-	at in.docsapp.tests.MaxLifeCaseTest.createDiagnoseVerifyMaxLifeCase(MaxLifeCaseTest.java:48)
-... Removed 28 stack frames
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@value=&apos;+ Add&apos;]&quot;}
+  (Session info: chrome=64.0.3282.186)
+  (Driver info: chromedriver=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91),platform=Windows NT 10.0.10586 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.7.1&apos;, revision: &apos;8a0099a&apos;, time: &apos;2017-11-06T21:01:39.354Z&apos;
+System info: host: &apos;TYSS-MF-034&apos;, ip: &apos;10.10.14.100&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_73&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.36.540470 (e522d04694c7eb..., userDataDir: C:\Users\AUTOMA~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 64.0.3282.186, webStorageEnabled: true}
+Session ID: 2559bf3c0d00e9fea3c82e0c498e30dd
+*** Element info: {Using=xpath, value=//input[@value=&apos;+ Add&apos;]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:370)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:472)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:109)
+	at com.sun.proxy.$Proxy12.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:193)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy16.click(Unknown Source)
+	at in.docsapp.generics.GenericMethods.click(GenericMethods.java:161)
+	at in.docsapp.workflow.ServiceLib.addCaseFlow(ServiceLib.java:513)
+	at in.docsapp.tests.MaxLifeCaseTest.createDiagnoseVerifyMaxLifeCase(MaxLifeCaseTest.java:45)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 22 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -142,14 +173,13 @@
         </div> <!-- panel Demo_Suite -->
         <div panel-name="test-xml-Demo_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\USER\git\DocsApp\testng.xml</span>
+            <span class="header-content">C:\Users\Automation\Desktop\DocsApp_Framework\DocsApp\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Demo_Suite&quot;&gt;
-  &lt;parameter name=&quot;browser&quot; value=&quot;firefox&quot;/&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Demo_Suite&quot; parallel=&quot;tests&quot;&gt;
   &lt;test name=&quot;Demo_Test&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;in.docsapp.tests.MaxLifeCaseTest&quot;/&gt;
@@ -196,12 +226,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'createDiagnoseVerifyMaxLifeCase')
 data.setCell(0, 2, 'in.docsapp.tests.MaxLifeCaseTest')
-data.setCell(0, 3, 32818);
+data.setCell(0, 3, 33429);
 window.suiteTableData['Demo_Suite']= { tableData: data, tableDiv: 'times-div-Demo_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 32 seconds</span>
+              <span class="suite-total-time">Total running time: 33 seconds</span>
               <div id="times-div-Demo_Suite">
               </div> <!-- times-div-Demo_Suite -->
             </div> <!-- times-div -->
@@ -233,30 +263,30 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
-                <span class="method-name">launchApplication(firefox)</span>
-                <span class="method-start">48 ms</span>
+                <span class="method-name">launchApplication</span>
+                <span class="method-start">16 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">getTestDetails(public void in.docsapp.tests.MaxLifeCaseTest.createDiagnoseVerifyMaxLifeCase())</span>
-                <span class="method-start">28559 ms</span>
+                <span class="method-start">22282 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">createDiagnoseVerifyMaxLifeCase</span>
-                <span class="method-start">28564 ms</span>
+                <span class="method-start">22286 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">endtest([TestResult name=createDiagnoseVerifyMaxLifeCase status=FAILURE method=MaxLifeCaseTest.createDiagnos...)</span>
-                <span class="method-start">61387 ms</span>
+                <span class="method-start">55724 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">exitApplication</span>
-                <span class="method-start">61712 ms</span>
+                <span class="method-start">55724 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">closeExtentReport</span>
-                <span class="method-start">61940 ms</span>
+                <span class="method-start">56231 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -5,18 +5,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.Listeners;
 
 /**
  * 
@@ -101,9 +97,6 @@ public class GenericMethods{
 		    return ft.format(date.getTime());
 		}
 		
-		public void waitforElement() {
-			
-		}
 		
 		/**
 		 * 
@@ -116,7 +109,7 @@ public class GenericMethods{
 		public boolean waitUntilElementISVisible(WebDriver driver, WebElement element) {
 			int count=0;
 			boolean flag=false;
-			while(count<5) 
+			while(count<10) 
 			{
 				try {
 					element.isDisplayed();
@@ -127,7 +120,7 @@ public class GenericMethods{
 				{
 					try 
 					{
-						Thread.sleep(1000);
+						Thread.sleep(500);
 						count++;
 					} 
 					catch (InterruptedException e1) 
@@ -142,11 +135,11 @@ public class GenericMethods{
 		public boolean waitUntilElementInvisible(WebDriver driver, WebElement element) {
 			int count=0;
 			boolean flag=false;
-			while(count<5) 
+			while(count<10) 
 			{
 				try {
 					element.isDisplayed();
-					Thread.sleep(1000);
+					Thread.sleep(500);
 					count++;
 				}
 				catch (Throwable e) 
@@ -160,7 +153,6 @@ public class GenericMethods{
 		
 		public void type(WebDriver driver,WebElement textElement, String data) {
 			waitUntilElementISVisible(driver, textElement);
-			System.out.println(data);
 			textElement.sendKeys(data);
 		}
 		
@@ -189,9 +181,9 @@ public class GenericMethods{
 				System.out.println("Moving old reports");
 				File destFolder = new File(".\\reports\\Oldreports\\MovedOn"+globalTimeStamp);
 				FileUtils.moveToDirectory(new File(".\\reports\\CurrentRunResults\\"),destFolder,true);
-				//FileUtils.moveToDirectory(new File(".\\src\\test\\CurrentRunResults\\ScreenShots\\"),destFolder,true);
+//				FileUtils.moveToDirectory(new File(".\\src\\test\\CurrentRunResults\\ScreenShots\\"),destFolder,true);
 			}
-			catch (IOException e) 
+			catch (Exception e) 
 			{
 				e.printStackTrace();
 			}

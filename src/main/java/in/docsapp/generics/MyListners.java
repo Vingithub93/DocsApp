@@ -8,9 +8,6 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
-
 public class MyListners implements ITestListener, WebDriverEventListener {
 
 	ExtentReportUtils extentUtils = new ExtentReportUtils();
