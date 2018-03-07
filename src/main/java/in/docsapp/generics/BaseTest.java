@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -75,12 +76,13 @@ public class BaseTest extends MyListners {
 	}
 	
 	private Local l;
-	
-	
 	@BeforeClass
 	public void launchApplication() {
+		
 		String browserName=System.getProperty("browser_name");
-		System.out.println("Browser Name received from jenkins : "+browserName);
+		System.out.println("Browser Name : "+browserName);
+		
+		
 		try
 		{
 			extent=new ExtentReports(extent_path,false);
@@ -175,7 +177,7 @@ public class BaseTest extends MyListners {
 				logger.log(LogStatus.WARNING, " Browser is not configured to launch");
 			}
 			driver.manage().window().maximize();
-//			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 			
 			EventFiringWebDriver e_driver = new EventFiringWebDriver(driver);
 			MyListners eventListener = new MyListners();

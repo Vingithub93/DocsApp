@@ -20,7 +20,7 @@ public class Wait {
 	public static void waitForTitle(WebDriver driver, String title)
 	{
 		wait=new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.titleContains(title));	
+		wait.until(ExpectedConditions.titleContains(title));
 	}
 	
 	//Wait for URL

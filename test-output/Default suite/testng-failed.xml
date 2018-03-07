@@ -3,17 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="in.docsapp.tests.MaxLifeCaseTest">
+      <class name="in.docsapp.tests.MaxLifeValidCaseTest">
         <methods>
           <include name="CreateExtentReport"/>
           <include name="endtest"/>
           <include name="launchApplication"/>
           <include name="closeExtentReport"/>
           <include name="exitApplication"/>
-          <include name="createDiagnoseVerifyMaxLifeCase"/>
           <include name="getTestDetails"/>
+          <include name="createDiagnoseVerifyMaxLifeValidCase"/>
         </methods>
-      </class> <!-- in.docsapp.tests.MaxLifeCaseTest -->
+      </class> <!-- in.docsapp.tests.MaxLifeValidCaseTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

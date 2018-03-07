@@ -189,20 +189,27 @@ public class GenericMethods{
 			}
 		}
 		
-		public void takeScreenShot(WebDriver driver)
+		public String takeScreenShot(WebDriver driver)
 		{
-					TakesScreenshot scrShot =((TakesScreenshot)driver);
-	                File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-	                GenericMethods gen =new GenericMethods();
-	                File DestFile=new File("./screenshots/"+gen.globalTimeStamp+".jpg");
+            GenericMethods gen =new GenericMethods();
+			TakesScreenshot scrShot =((TakesScreenshot)driver);
+			
+			String destPath= System.getProperty("user.dir") + "/screenshots/"+gen.globalTimeStamp+".jpg";
+            
+			File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
 
-	                try 
-	                {
-						FileUtils.copyFile(SrcFile, DestFile);
-					} 
-	                catch (IOException e) {
-						e.printStackTrace();
-					}
+            
+            File DestFile=new File(destPath);
+
+            try 
+            {
+				FileUtils.copyFile(SrcFile, DestFile);
+			} 
+            catch (IOException e) {
+				e.printStackTrace();
+			}
+            System.out.println(destPath);
+            return destPath;
 		}
 
 }

@@ -43,6 +43,7 @@ public class ExtentReportUtils
 	public void logFail(String info)
 	{
 		BaseTest.logger.log(LogStatus.FAIL,info);
+		
 	}
 	
 	/**
@@ -86,10 +87,10 @@ public class ExtentReportUtils
 	 * @param info the info
 	 * @param image the image
 	 */
-	public void logImage(String info, String image)
+	public void logImage(String image)
 	{
 		image=BaseTest.logger.addScreenCapture(image);
-		BaseTest.logger.log(LogStatus.INFO, info,image);
+		BaseTest.logger.log(LogStatus.INFO, image);
 	}
 	
 }

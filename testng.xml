@@ -4,7 +4,8 @@
 
   <test name="Demo_Test" >
     <classes>
-      <class name="in.docsapp.tests.MaxLifeCaseTest"/>
+      <class name="in.docsapp.tests.MaxLifeValidCaseTest"/>
+      <class name="in.docsapp.tests.MaxLifeInvalidCaseTest"/>
     </classes>
   </test><!-- Demo_Test  -->
   
@@ -12,7 +13,8 @@
 <!--   <test name="Demo_Test_2" > -->
 <!--     <parameter name="browser" value="firefox"></parameter> -->
 <!--     <classes> -->
-<!--       <class name="in.docsapp.tests.MaxLifeCaseTest"/> -->
+<!--       <class name="in.docsapp.tests.MaxLifeValidCaseTest"/> -->
+<!--       <class name="in.docsapp.tests.MaxLifeInvalidCaseTest"/> -->
 <!--     </classes> -->
 <!--   </test> Demo_Test  -->
 </suite> <!-- Demo_Suite -->

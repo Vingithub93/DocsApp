@@ -84,7 +84,7 @@ public class ServiceLib extends BasePage{
 		
 		methods.type(driver, signin.getEleSigninUsername(), userName);
 		methods.type(driver, signin.getEleSigninPassword(), password);
-		Wait.waitForElementClickable(driver, signin.getEleSigninButton());
+		methods.customDelay(3);
 		methods.click(driver, signin.getEleSigninButton());
 		
 		if(methods.waitUntilElementISVisible(driver, signin.getDocsAppLogo()))
@@ -199,8 +199,7 @@ public class ServiceLib extends BasePage{
 		
 		methods.type(driver, signin.getEleSigninUsername(), userName);
 		methods.type(driver, signin.getEleSigninPassword(), password);
-//		methods.customDelay(3);
-		Wait.waitForElementClickable(driver, signin.getEleSigninButton());
+		methods.customDelay(3);
 		methods.click(driver, signin.getEleSigninButton());
 
 		if(methods.waitUntilElementISVisible(driver, signin.getDocsAppLogo()))
@@ -230,9 +229,9 @@ public class ServiceLib extends BasePage{
 	{
 		BasePage base=new BasePage(driver);
 		GenericMethods methods=new GenericMethods();
-//		methods.customDelay(3);
 		Wait.waitForElementClickable(driver, base.getElelogoutButton());
-		methods.click(driver, base.getElelogoutButton());
+//		methods.click(driver, base.getElelogoutButton());
+		base.getElelogoutButton().click();
 		SigninPagePagePO signin=new SigninPagePagePO(driver);
 		if(methods.waitUntilElementISVisible(driver, signin.getEleSigninText()))
 		{
@@ -290,17 +289,21 @@ public class ServiceLib extends BasePage{
 				Wait.waitForElementClickable(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")));
 				
 				BaseTest.element="Yes button for question : "+question;
-				methods.click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")));
+//				methods.click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")));
+				driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'Yes')]")).click();
+				
 				
 				try {
 					List<WebElement> ele = driver.findElements(By.xpath("//*[contains(text(),'"+question+"')]/../..//div[last()]//input"));
 					for(WebElement we:ele)
 					{
 						BaseTest.element="";
-						methods.clearTextField(driver, we);
+//						methods.clearTextField(driver, we);
+						we.clear();
 
 						BaseTest.element=" question : "+question;
-						methods.type(driver, we, answer);
+//						methods.type(driver, we, answer);
+						we.sendKeys(answer);
 					}
 				}
 				catch (Exception e) {
@@ -309,7 +312,10 @@ public class ServiceLib extends BasePage{
 			}
 			else if (option.equalsIgnoreCase("no")) {
 				BaseTest.element="No button for question : "+question;
-				methods.click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'No')]")));
+//				methods.click(driver, driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'No')]")));
+				
+				driver.findElement(By.xpath("//*[contains(text(),'"+question+"')]/../..//span[contains(text(),'No')]")).click();
+				
 				
 			}
 			else if (option.equalsIgnoreCase("NA")) {
@@ -318,10 +324,15 @@ public class ServiceLib extends BasePage{
 					for(WebElement we:ele)
 					{
 						BaseTest.element="Cleared the text box";
-						methods.clearTextField(driver, we);
+//						methods.clearTextField(driver, we);
+						
+						we.clear();
 						
 						BaseTest.element=answer+" for question : "+question;
-						methods.type(driver, we, answer);
+//						methods.type(driver, we, answer);
+						
+						we.sendKeys(answer);
+						
 					}
 				}
 				catch (Exception e) {
@@ -415,7 +426,10 @@ public class ServiceLib extends BasePage{
 		OpsDashboardPagePO ops=new OpsDashboardPagePO(driver);
 		int rowNum=ExcelLibrary.findRowNum(caseName, GenericMethods.getConfigProperty("sheet5"));
 		String data=ExcelLibrary.getSingleCell(GenericMethods.getConfigProperty("sheet5"), rowNum, "Application_ID");
-		methods.type(driver, ops.getEleAppIDSearchTextField(), data);
+		
+//		methods.type(driver, ops.getEleAppIDSearchTextField(), data);
+		
+		ops.getEleAppIDSearchTextField().sendKeys(data);
 	}
 	
 	
@@ -491,7 +505,7 @@ public class ServiceLib extends BasePage{
 		BasePage basePage=new BasePage(driver);
 		GenericMethods genericMethods=new GenericMethods();
 		
-		genericMethods.customDelay(8);
+		genericMethods.customDelay(4);
 		genericMethods.waitUntilElementISVisible(driver, basePage.getEleLoader());
 	}
 	
