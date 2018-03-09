@@ -27,11 +27,12 @@
 				<configuration>
 				<systemPropertyVariables>
 				<browser_name>${browser_name}</browser_name>
-				</systemPropertyVariables>
 					<testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>
-						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<suiteXmlFile>${testng}</suiteXmlFile>
                     </suiteXmlFiles>
+				</systemPropertyVariables>
+				
                 </configuration>
             </plugin>
            </plugins>

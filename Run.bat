@@ -1,0 +1,1 @@
+mvn test -Dtestng=testng.xml -Dbrowser_name=chrome
